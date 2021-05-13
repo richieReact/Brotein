@@ -1,21 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+import FitScreen from './src/screens/FitScreen'
+
+const navigator = createStackNavigator({
+  Fit: FitScreen
+}, {
+  initialRouteName: 'Fit',
+  defaultNavigationOptions: {
+    title: 'Brotein'
+  }
+})
+
+const App = createAppContainer(navigator)
+
+
+export default () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <App />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
