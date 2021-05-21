@@ -25,7 +25,7 @@ const ProteinCard = ({ theme }) => {
               We recommend at least 1 gram of protein per pound of lean bodyweight!
             </Paragraph>
           </Card.Content>
-          {/* <Card.Cover source={{ uri: 'https://picsum.photos/700' }} /> */}
+          {/* <Card.Cover source={{ uri: 'https://picsum.photos/300' }} /> */}
           {/* <Card.Actions>
             <Button>Cancel</Button>
             <Button>Ok</Button>
@@ -72,8 +72,6 @@ const ProteinCard = ({ theme }) => {
           style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
         ></Button>
       </View> 
-
-      {/* <TextInput /> */}
 
       </View>
     </>
