@@ -1,17 +1,19 @@
-import React from 'react';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import React from 'react'
+import { createAppContainer, createSwitchNavigator } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native'
 
-import { DefaultTheme, Provider as PaperProvider, DarkTheme } from 'react-native-paper';
+import { DefaultTheme, Provider as PaperProvider, DarkTheme } from 'react-native-paper'
 
 import FitScreen from './src/screens/FitScreen'
 import AccountScreen from './src/screens/AccountScreen'
+import LiftScreen from './src/screens/LiftScreen'
 
 const navigator = createStackNavigator({
   Fit: FitScreen,
-  Account: AccountScreen
+  Account: AccountScreen,
+  Lifties: LiftScreen
 }, {
   initialRouteName: 'Fit',
   defaultNavigationOptions: {
