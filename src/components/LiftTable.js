@@ -253,6 +253,7 @@ const LiftTable = () => {
           </Button>
 
           <Title style={{ textAlign: 'center' }} >1 Rep Max</Title>
+          <Paragraph style={{ textAlign: 'center' }} >Keep the reps under 12 for the most accurate calculation</Paragraph>
           <DataTable>
             <DataTable.Header>
               <DataTable.Title>Exercises</DataTable.Title>
@@ -288,8 +289,7 @@ const LiftTable = () => {
                   style={{ marginTop: 2 }}
                   visible={menuVisible}
                   onDismiss={closeMenu}
-                  anchor={
-                    <Button mode='outlined' onPress={openMenu}>Which lift?</Button>}>
+                  anchor={<Button mode='outlined' onPress={openMenu}>Which lift?</Button>}>
                   <Menu.Item onPress={() => {benchMenuControl()}} title="Bench Press" />
                   <Menu.Item onPress={() => {squatMenuControl()}} title="Squat" />
                   <Menu.Item onPress={() => {barRowMenuControl()}} title="Barbell Row" />

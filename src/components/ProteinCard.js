@@ -18,18 +18,13 @@ const ProteinCard = ({ theme }) => {
 
       <View>
         <Card>
-          <Card.Title title="Today's Protein" />
+          <Card.Title title="Today's Protein" titleStyle={{ fontWeight: 'bold', fontSize: 21, marginLeft: 120 }} />
           <Card.Content>
-            <Title>{protein} grams</Title>
+            <Title style={{ textAlign: 'center' }} >{protein} grams</Title>
             <Paragraph>
               We recommend at least 1 gram of protein per pound of lean bodyweight!
             </Paragraph>
           </Card.Content>
-          {/* <Card.Cover source={{ uri: 'https://picsum.photos/300' }} /> */}
-          {/* <Card.Actions>
-            <Button>Cancel</Button>
-            <Button>Ok</Button>
-          </Card.Actions> */}
         </Card>
       </View>
 
