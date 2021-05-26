@@ -7,6 +7,7 @@ import ProteinCard from '../components/ProteinCard'
 import BigSpacer from '../components/BigSpacer'
 import Spacer from '../components/Spacer'
 import Water from '../components/Water'
+import Measure from '../components/Measure'
 
 const FitScreen = ({ navigation }) => {
 
@@ -15,6 +16,8 @@ const FitScreen = ({ navigation }) => {
       <ProteinCard />
       <Spacer />
       <Water />
+      <Spacer />
+      <Measure />
       <Appbar style={styles.appBar}>
         <Appbar.Action
           icon="account"
