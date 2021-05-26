@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 7,
     marginBottom: 10,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: 'bold'
   },
   input: {
     width: '100%',
