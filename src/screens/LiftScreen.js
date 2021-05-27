@@ -13,18 +13,21 @@ const LiftScreen = ({ navigation }) => {
       <LiftTable />
       <Appbar style={styles.appBar}>
         <Appbar.Action
-          icon="account"
-          onPress={() => navigation.navigate('Account')}
+          size={30}
+          icon="food"
+          onPress={() => navigation.navigate('Fit')}
         />
         <BigSpacer />
         <Appbar.Action
+          size={30}
           icon="weight-lifter" 
           onPress={() => navigation.navigate('Lifties')} 
         />
         <BigSpacer />
         <Appbar.Action
-          icon="delete"
-          onPress={() => console.log('Pressed delete')}
+          size={30}
+          icon="account"
+          onPress={() => navigation.navigate('Account')}
         />
       </Appbar>
     </>
