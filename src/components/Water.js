@@ -24,7 +24,7 @@ const Water = ({ theme }) => {
       <ProgressBar progress={water} color={Colors.blue500} />
       <Spacer />
       <View style={{ color: colors.primary }} >
-        <Button onPress={() => setwater('0')} mode='outlined'>Reset Water</Button>
+        <Button onPress={() => setWater('0')} mode='outlined'>Reset Water</Button>
       </View>
 
       <Spacer />
