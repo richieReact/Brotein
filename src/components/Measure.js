@@ -1,206 +1,205 @@
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { TextInput , Button} from 'react-native-paper'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+
+import useWeightData from '../hooks/useWeightData'
+import useArmsData from '../hooks/useArmsData'
+import useBodyFat from '../hooks/useBodyFatData'
+import useCalvesData from '../hooks/useCalvesData'
+import useChestData from '../hooks/useChestData'
+import useForearmsData from '../hooks/useForearmsData'
+import useHipsData from '../hooks/useHipsData'
+import useShouldersData from '../hooks/useShouldersData'
+import useThighsData from '../hooks/useThighsData'
+import useWaistData from '../hooks/useWaistData'
 
 const Measure = () => {
-  const [weight, setWeight] = useState('200')
+  const [weight, setWeight, saveWeightData, readWeightData, onSubmitWeight, onChangeWeightText] = useWeightData()
 
-  // Attemp at AsyncStorage for the weight; it works!
-  const STORAGE_KEY = '@save_weight'
+  const [arms, setArms, saveArmsData, readArmsData, onSubmitArms, onChangeArmsText] = useArmsData()
+
+  const [bodyFat, setBodyFat, saveBodyFatData, readBodyFatData, onSubmitBodyFat, onChangeBodyFatText] = useBodyFat()
+
+  const [calves, setCalves, saveCalvesData, readCalvesData, onSubmitCalves, onChangeCalvesText] = useCalvesData()
+
+  const [chest, setChest, saveChestData, readChestData, onSubmitChest, onChangeChestText] = useChestData()
+
+  const [forearms, setForearms, saveForearmsData, readForearmsData, onSubmitForearms, onChangeForearmsText] = useForearmsData()
+
+  const [hips, setHips, saveHipsData, readHipsData, onSubmitHips, onChangeHipsText] = useHipsData()
+
+  const [shoulders, setShoulders, saveShouldersData, readShouldersData, onSubmitShoulders, onChangeShouldersText] = useShouldersData()
+
+  const [thighs, setThighs, saveThighsData, readThighsData, onSubmitThighs, onChangeThighsText] = useThighsData()
+
+  const [waist, setWaist, saveWaistData, readWaistData, onSubmitWaist, onChangeWaistText] = useWaistData()
 
   useEffect(() => {
-    readData()
+    readWeightData()
+    readArmsData()
+    readBodyFatData()
+    readCalvesData()
+    readChestData()
+    readForearmsData()
+    readHipsData()
+    readShouldersData()
+    readThighsData()
+    readWaistData()
   }, [])
-
-  const saveData = async () => {
-    try {
-      await AsyncStorage.setItem(STORAGE_KEY, weight)
-      alert('Data successfully saved')
-    } catch (e) {
-      alert('Failed to save the data to the storage')
-    }
-  }
-
-  const readData = async () => {
-    try {
-      const userWeight = await AsyncStorage.getItem(STORAGE_KEY)
-  
-      if (userWeight !== null) {
-        setWeight(userWeight)
-      }
-    } catch (e) {
-      alert('Failed to fetch the data from storage')
-    }
-  }
-
-  const onSubmitWeight = () => {
-    if (!weight) return
-  
-    saveData(weight)
-    setWeight(weight)
-  }
-
-  // just to hold the app
-  const onSubmitEditing = () => {
-    console.log("This doesn't do shit")
-  }
-
-  const onChangeText = userWeight => setWeight(userWeight)
 
   return (
     <>
       <Text style={styles.title}>Measurements</Text>
 
-      <View style={{ flexDirection: 'row' }} >
+      <View style={{ flexDirection: 'row' }}>
         <View style={styles.row} >
-          <Text style={styles.label} >Weight</Text>
+          <Text style={styles.label}>Weight</Text>
           <TextInput 
             value={weight}
-            onChangeText={onChangeText}
+            onChangeText={onChangeWeightText}
             onSubmitEditing={onSubmitWeight}
           />
           <Button
             compact
             mode='outlined'
-            onPress={onSubmitEditing}
+            onPress={onSubmitWeight}
           >Save
           </Button>
         </View>
 
-        <View style={styles.row}  >
+        <View style={styles.row}>
           <Text style={styles.label}>Arms</Text>
           <TextInput 
-            value={weight}
-            onChangeText={onChangeText}
-            onSubmitEditing={onSubmitEditing}
+            value={arms}
+            onChangeText={onChangeArmsText}
+            onSubmitEditing={onSubmitArms}
           />
           <Button
             compact
             mode='outlined'
-            onPress={onSubmitEditing}
+            onPress={onSubmitArms}
           >Save
           </Button>
         </View>
 
-        <View style={styles.row}  >
+        <View style={styles.row}>
           <Text style={styles.label}>Waist</Text>
           <TextInput 
-            value={weight}
-            onChangeText={onChangeText}
-            onSubmitEditing={onSubmitEditing}
+            value={waist}
+            onChangeText={onChangeWaistText}
+            onSubmitEditing={onSubmitWaist}
           />
           <Button
             compact
             mode='outlined'
-            onPress={onSubmitEditing}
+            onPress={onSubmitWaist}
           >Save
           </Button>
         </View>
 
-        <View style={styles.row}  >
+        <View style={styles.row}>
           <Text style={styles.label}>Chest</Text>
           <TextInput 
-            value={weight}
-            onChangeText={onChangeText}
-            onSubmitEditing={onSubmitEditing}
+            value={chest}
+            onChangeText={onChangeChestText}
+            onSubmitEditing={onSubmitChest}
           />
           <Button
             compact
             mode='outlined'
-            onPress={onSubmitEditing}
+            onPress={onSubmitChest}
           >Save
           </Button>
         </View>
 
-        <View style={styles.row}  >
+        <View style={styles.row}>
           <Text style={styles.label}>Thighs</Text>
           <TextInput 
-            value={weight}
-            onChangeText={onChangeText}
-            onSubmitEditing={onSubmitEditing}
+            value={thighs}
+            onChangeText={onChangeThighsText}
+            onSubmitEditing={onSubmitThighs}
           />
           <Button
             compact
             mode='outlined'
-            onPress={onSubmitEditing}
+            onPress={onSubmitThighs}
           >Save
           </Button>
         </View>
       </View>
 
-      <View style={{ flexDirection: 'row', marginTop: 85 }} >
-        <View style={styles.row} >
-          <Text style={styles.label} >BodyFat%</Text>
+      <View style={{ flexDirection: 'row', marginTop: 85 }}>
+        <View style={styles.row}>
+          <Text style={styles.label}>BodyFat%</Text>
           <TextInput 
-            value={weight}
-            onChangeText={onChangeText}
-            onSubmitEditing={onSubmitWeight}
+            value={bodyFat}
+            onChangeText={onChangeBodyFatText}
+            onSubmitEditing={onSubmitBodyFat}
           />
           <Button
             compact
             mode='outlined'
-            onPress={onSubmitEditing}
+            onPress={onSubmitBodyFat}
           >Save
           </Button>
         </View>
 
-        <View style={styles.row} >
-          <Text style={styles.label} >Forearms</Text>
+        <View style={styles.row}>
+          <Text style={styles.label}>Forearms</Text>
           <TextInput 
-            value={weight}
-            onChangeText={onChangeText}
-            onSubmitEditing={onSubmitWeight}
+            value={forearms}
+            onChangeText={onChangeForearmsText}
+            onSubmitEditing={onSubmitForearms}
           />
           <Button
             compact
             mode='outlined'
-            onPress={onSubmitEditing}
+            onPress={onSubmitForearms}
           >Save
           </Button>
         </View>
 
-        <View style={styles.row} >
-          <Text style={styles.label} >Hips</Text>
+        <View style={styles.row}>
+          <Text style={styles.label}>Hips</Text>
           <TextInput 
-            value={weight}
-            onChangeText={onChangeText}
-            onSubmitEditing={onSubmitWeight}
+            value={hips}
+            onChangeText={onChangeHipsText}
+            onSubmitEditing={onSubmitHips}
           />
           <Button
             compact
             mode='outlined'
-            onPress={onSubmitEditing}
+            onPress={onSubmitHips}
           >Save
           </Button>
         </View>
 
-        <View style={styles.row} >
-          <Text style={styles.label} >Shoulders</Text>
+        <View style={styles.row}>
+          <Text style={styles.label}>Shoulders</Text>
           <TextInput 
-            value={weight}
-            onChangeText={onChangeText}
-            onSubmitEditing={onSubmitWeight}
+            value={shoulders}
+            onChangeText={onChangeShouldersText}
+            onSubmitEditing={onSubmitShoulders}
           />
           <Button
             compact
             mode='outlined'
-            onPress={onSubmitEditing}
+            onPress={onSubmitShoulders}
           >Save
           </Button>
         </View>
 
-        <View style={styles.row} >
+        <View style={styles.row}>
           <Text style={styles.label}>Calves</Text>
           <TextInput 
-            value={weight}
-            onChangeText={onChangeText}
-            onSubmitEditing={onSubmitWeight}
+            value={calves}
+            onChangeText={onChangeCalvesText}
+            onSubmitEditing={onSubmitCalves}
           />
           <Button
             compact
             mode='outlined'
-            onPress={onSubmitEditing}
+            onPress={onSubmitCalves}
           >Save
           </Button>
         </View>
