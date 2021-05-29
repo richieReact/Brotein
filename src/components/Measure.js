@@ -211,14 +211,16 @@ const Measure = () => {
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'column',
-    width: '20%',
+    width: '19%',
     height: 60,
+    margin: 2
   },
   title: {
     fontWeight: 'bold',
     fontSize: 21,
     marginLeft: 135,
-    marginBottom: 15
+    marginBottom: 12,
+    marginTop: 10
   },
   label: {
     fontSize: 17,
