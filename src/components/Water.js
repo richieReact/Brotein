@@ -1,21 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { ProgressBar, Colors, TextInput, Button, withTheme } from 'react-native-paper'
 
 import Spacer from './Spacer'
 import BigSpacer from './BigSpacer'
+import useWaterData from '../hooks/waterHooks/useWater'
 
 const Water = ({ theme }) => {
-  const [water, setWater] = useState('')
-  const [moWater, setMoWater] = useState('')
-  const [lessWater, setLessWater] = useState('')
+  const [water, setWater, moWater, setMoWater, lessWater, setLessWater, saveWaterData, readWaterData, onSubmitWater, onChangeWaterText, addWater, subtractWater, resetWater, persistWater, clearStorage] = useWaterData()
 
   const colors = { theme }
 
-  const subtractWater = () => {
-    const wtr = lessWater * .0078
-    return water - wtr
-  }
+  useEffect(() => {
+    readWaterData()
+    console.log(water)
+  }, [])
 
   return (
     <>
@@ -23,9 +22,9 @@ const Water = ({ theme }) => {
       <Spacer />
       <ProgressBar progress={water} color={Colors.blue500} />
       <Spacer />
-      <View style={{ color: colors.primary }} >
-        <Button onPress={() => setWater('0')} mode='outlined'>Reset Water</Button>
-      </View>
+      {/* <View style={{ color: colors.primary }} >
+        <Button onPress={resetWater} mode='outlined'>Reset Water... hit twice</Button>
+      </View> */}
 
       <Spacer />
       <View style={styles.input} >
@@ -33,31 +32,39 @@ const Water = ({ theme }) => {
           style={{ flex: 1 }}
           label='Add water'
           value={moWater}
-          onChangeText={(num) => setMoWater(num)}
+          onChangeText={setMoWater}
         />
         <Button 
           contentStyle={{ height: 60, width: 60 }}
           compact
           icon='plus'
-          onPress={() => setWater(Number(moWater) * .0078 )} 
+          onPress={addWater} 
           mode='outlined' 
           style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
         ></Button>
         
-        <TextInput 
+        {/* <TextInput 
           style={{ flex: 1 }}
           label='Subtract water'
           value={lessWater}
           onChangeText={(num) => setLessWater(num)}
-        />
+        /> */}
         <Button 
-          contentStyle={{ height: 60, width: 60 }}
+          contentStyle={{ height: 60, width: 80 }}
           compact
-          icon='minus'
-          onPress={() => setWater(subtractWater)} 
+          // icon='download'
+          onPress={persistWater}
           mode='outlined' 
           style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
-        ></Button>
+        >Save</Button>
+        <Button 
+          contentStyle={{ height: 60, width: 80 }}
+          compact
+          // icon='download'
+          onPress={clearStorage}
+          mode='outlined' 
+          style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
+        >Clear</Button>
       </View>
     </>
   )
