@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     color: colors.primary,
-    height: 88,
+    height: 80,
     justifyContent: 'center'
   }
 })
