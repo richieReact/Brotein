@@ -35,7 +35,6 @@ export default () => {
   const saveWaterData = async () => {
     try {
       await AsyncStorage.setItem(STORAGE_KEY09, water)
-      alert('Saved!')
     } catch (e) {
       alert('Fucked up')
     }

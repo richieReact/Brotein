@@ -44,8 +44,6 @@ export default () => {
   const readProteinData = async () => {
     try {
       const userProtein = await AsyncStorage.getItem(STORAGE_KEY00)
-      // console.log(userProtein)
-      // const blurg = Number(userProtein)
       if (userProtein !== null) {
         setProtein(userProtein)
       }
