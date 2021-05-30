@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { ProgressBar, Colors, TextInput, Button, withTheme } from 'react-native-paper'
 
 import Spacer from './Spacer'
-import BigSpacer from './BigSpacer'
 import useWaterData from '../hooks/waterHooks/useWater'
 
 const Water = ({ theme }) => {
-  const [water, setWater, moWater, setMoWater, lessWater, setLessWater, saveWaterData, readWaterData, onSubmitWater, onChangeWaterText, addWater, subtractWater, resetWater, persistWater, clearStorage] = useWaterData()
-
-  const colors = { theme }
+  const [water, setWater, moWater, setMoWater, lessWater, setLessWater, saveWaterData, readWaterData, addWater, persistWater, clearStorage] = useWaterData()
 
   useEffect(() => {
     readWaterData()
-    console.log(water)
   }, [])
 
   return (
@@ -22,11 +18,7 @@ const Water = ({ theme }) => {
       <Spacer />
       <ProgressBar progress={water} color={Colors.blue500} />
       <Spacer />
-      {/* <View style={{ color: colors.primary }} >
-        <Button onPress={resetWater} mode='outlined'>Reset Water... hit twice</Button>
-      </View> */}
 
-      <Spacer />
       <View style={styles.input} >
         <TextInput 
           style={{ flex: 1 }}
@@ -43,16 +35,9 @@ const Water = ({ theme }) => {
           style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
         ></Button>
         
-        {/* <TextInput 
-          style={{ flex: 1 }}
-          label='Subtract water'
-          value={lessWater}
-          onChangeText={(num) => setLessWater(num)}
-        /> */}
         <Button 
           contentStyle={{ height: 60, width: 80 }}
           compact
-          // icon='download'
           onPress={persistWater}
           mode='outlined' 
           style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
@@ -60,7 +45,6 @@ const Water = ({ theme }) => {
         <Button 
           contentStyle={{ height: 60, width: 80 }}
           compact
-          // icon='download'
           onPress={clearStorage}
           mode='outlined' 
           style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
@@ -83,6 +67,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     height: 61,
+    marginTop: 7
   }
 })
 
