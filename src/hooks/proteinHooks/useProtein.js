@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default () => {
-  const [protein, setProtein] = useState('')
+  const [protein, setProtein] = useState('0')
   const [newProtein, setNewProtein] = useState('')
   const [delProtein, setDelProtein] = useState('')
 
@@ -17,22 +17,25 @@ export default () => {
     setProtein(strProtein)
   }
 
-  const deleteProtein = () => {
-    const negProtein = (Number(protein) - Number(delProtein))
-    const byeProtein = negProtein.toString()
-    setProtein(byeProtein)
-    saveProteinData()
+  const clearProteinStorage = async () => {
+    try {
+      await AsyncStorage.removeItem(STORAGE_KEY00)
+
+      setProtein('0')
+    } catch (e) {
+      alert('oh nooo')
+    }
   }
 
-  const resetProtein = () => {
-    setProtein('0')
-    saveProteinData()
+  const persistProtein = () => {
+
+    saveProteinData(protein)
+    setProtein(protein)
   }
 
   const saveProteinData = async () => {
     try {
       await AsyncStorage.setItem(STORAGE_KEY00, protein)
-      // alert('Data saved!')
     } catch (e) {
       alert('Data save failed!')
     }
@@ -51,14 +54,5 @@ export default () => {
     }
   }
 
-  const onSubmitProtein = () => {
-    if (!protein) return
-
-    saveProteinData(protein)
-    setProtein(protein)
-  }
-
-    const onChangeProteinText = userProtein => setProtein(userProtein)
-
-    return [protein, setProtein, saveProteinData, readProteinData, onSubmitProtein, onChangeProteinText, newProtein, setNewProtein, delProtein, setDelProtein, addProtein, deleteProtein, resetProtein]
+  return [protein, setProtein, saveProteinData, readProteinData, newProtein, setNewProtein, delProtein, setDelProtein, addProtein, persistProtein, clearProteinStorage]
 }
