@@ -10,21 +10,10 @@ export default () => {
 
   const addWater = () => {
     const nmbWater = (Number(water) + Number(moWater) * .0078)
-
     const strWater = nmbWater.toString()
         
     saveWaterData(strWater)
     setWater(strWater)
-  }
-
-  const subtractWater = () => {
-    const wtr = lessWater * .0078
-    const newWater = water - wtr
-    const strWater = newWater.toString()
-
-    water = strWater
-    saveWaterData(water)
-    setWater(water)
   }
 
   const clearStorage = async () => {
@@ -41,11 +30,6 @@ export default () => {
 
     saveWaterData(water)
     setWater(water)
-  }
-
-  const resetWater = () => {
-    setWater('0')
-    saveWaterData()
   }
 
   const saveWaterData = async () => {
@@ -69,14 +53,5 @@ export default () => {
     }
   }
 
-  const onSubmitWater = () => {
-    if (!water) return
-
-    saveWaterData(water)
-    setWater(water)
-  }
-
-  const onChangeWaterText = userWater => setWater(userWater)
-
-  return [water, setWater, moWater, setMoWater, lessWater, setLessWater, saveWaterData, readWaterData, onSubmitWater, onChangeWaterText, addWater, subtractWater, resetWater, persistWater, clearStorage]
+  return [water, setWater, moWater, setMoWater, lessWater, setLessWater, saveWaterData, readWaterData, addWater, persistWater, clearStorage]
 }
