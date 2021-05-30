@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { Avatar, Card, Title, Paragraph, withTheme, Button, TextInput } from 'react-native-paper';
-import { colors, Input } from 'react-native-elements'
+import React, { useEffect } from 'react'
+import { View, StyleSheet } from 'react-native'
+import { Card, Title, Paragraph, withTheme, Button, TextInput } from 'react-native-paper';
+import { colors } from 'react-native-elements'
 
 import Spacer from './Spacer'
 import useProteinData from '../hooks/proteinHooks/useProtein'
 
 const ProteinCard = ({ theme }) => {
-  const [protein, setProtein, saveProteinData, readProteinData, onSubmitProtein, onChangeProteinText, newProtein, setNewProtein, delProtein, setDelProtein, addProtein, deleteProtein, resetProtein] = useProteinData()
+  const [protein, setProtein, saveProteinData, readProteinData, newProtein, setNewProtein, delProtein, setDelProtein, addProtein, persistProtein, clearProteinStorage] = useProteinData()
 
   useEffect(() => {
     readProteinData()
@@ -17,7 +17,7 @@ const ProteinCard = ({ theme }) => {
 
   return (
     <>
-      <View style={{ color: colors.primary }} >
+      <View style={{ color: colors.primary }}>
 
       <View>
         <Card>
@@ -31,12 +31,6 @@ const ProteinCard = ({ theme }) => {
         </Card>
       </View>
       
-      <Spacer />
-
-      {/* <View style={{ color: colors.primary }} >
-        <Button onPress={() => resetProtein()} mode='outlined'>Reset Protein Count, hit twice</Button>
-      </View> */}
-
       <Spacer />
 
       <View style={styles.input} >
@@ -55,22 +49,24 @@ const ProteinCard = ({ theme }) => {
           style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
         ></Button>
         
-        <TextInput 
-          style={{ flex: 1 }}
-          label='Subtract protein'
-          value={delProtein}
-          onChangeText={(num) => setDelProtein(num)}
-        />
         <Button 
-          contentStyle={{ height: 60, width: 60 }}
+          contentStyle={{ height: 60, width: 80 }}
           compact
-          icon='minus'
-          onPress={() => deleteProtein()} 
+          // icon='minus'
+          onPress={persistProtein} 
           mode='outlined' 
           style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
-        ></Button>
+        >Save</Button>
+        <Button 
+          contentStyle={{ height: 60, width: 80 }}
+          compact
+          // icon='minus'
+          onPress={clearProteinStorage} 
+          mode='outlined' 
+          style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
+        >Clear</Button>
       </View> 
-      <Paragraph style={{ textAlign: 'center' }} >After adding your protein, add 0 afterwards and hit the button to save the data (bug), the same with water intake.</Paragraph>
+
       </View>
     </>
   )
