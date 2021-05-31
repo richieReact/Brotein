@@ -34,7 +34,6 @@ const LiftTable = () => {
 
   const [deadReps, setDeadReps, readDeadRepsData, onSubmitDeadReps, onChangeDeadRepsText] = useDeadliftRepsData()
 
-  // menu state
   const [visible, setVisible] = useState(false)
   const [menuVisible, setMenuVisible] = useState(false)
 
@@ -242,31 +241,26 @@ const LiftTable = () => {
   //Gonna try to make a one rep max calculator; ended up finding this one
   const benchOneRepMax = () => {
     const benchMax = Math.round((100 * benchWeight) / (101.3 - (2.67123 * benchReps)))
-    console.log(benchMax)
     return benchMax
   }
 
   const squatOneRepMax = () => {
     const squatMax = Math.round((100 * squatWeight) / (101.3 - (2.67123 * squatReps)))
-    console.log(squatMax)
     return squatMax
   }
 
   const barRowOneRepMax = () => {
     const barRowMax = Math.round((100 * barRowWeight) / (101.3 - (2.67123 * barRowReps)))
-    console.log(barRowMax)
     return barRowMax
   }
 
   const barPressOneRepMax = () => {
     const barPressMax = Math.round((100 * barPressWeight) / (101.3 - (2.67123 * barPressReps)))
-    console.log(barPressMax)
     return barPressMax
   }
 
   const deadOneRepMax = () => {
     const deadMax = Math.round((100 * deadWeight) / (101.3 - (2.67123 * deadReps)))
-    console.log(deadMax)
     return deadMax
   }
 
@@ -307,7 +301,12 @@ const LiftTable = () => {
               <DataTable.Cell numeric>{deadReps}</DataTable.Cell>
             </DataTable.Row>
           </DataTable>
-          <Button style={{marginTop: 15  }} onPress={showModal}>
+
+          <Button 
+            style={{ marginTop: 15 }} 
+            onPress={showModal}
+            mode='outlined'
+          >
             Edit Lifts
           </Button>
 
