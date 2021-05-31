@@ -1,33 +1,93 @@
-import React, { useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { View, StyleSheet } from 'react-native'
 import { DataTable, withTheme, Title, Modal, Portal, Provider, Button, TextInput, Menu, Paragraph } from 'react-native-paper'
 
-const LiftTable = () => {
-  const [visible, setVisible] = useState(false);
-  // const [text, setText] = useState('')
+import useBenchData from '../hooks/liftHooks/useBenchData'
+import useBenchRepsData from '../hooks/liftHooks/useBenchRepsData'
+import useSquatData from '../hooks/liftHooks/useSquatData'
+import useSquatRepsData from '../hooks/liftHooks/useSquatRepsData'
+import useBarbellRowData from '../hooks/liftHooks/useBarbellRowData'
+import useBarbellRowRepsData from '../hooks/liftHooks/useBarbellRowRepsData'
+import useBarbellPressData from '../hooks/liftHooks/useBarbellPressData'
+import useBarbellPressRepsData from '../hooks/liftHooks/useBarbellPressRepsData'
+import useDeadliftData from '../hooks/liftHooks/useDeadliftData'
+import useDeadliftRepsData from '../hooks/liftHooks/useDeadliftRepsData'
 
-  // State for each lift and rep
-  const [benchWeight, setBenchWeight] = useState('185')
-  const [squatWeight, setSquatWeight] = useState('205')
-  const [barRowWeight, setBarRowWeight] = useState('155')
-  const [barPressWeight, setBarPressWeight] = useState('135')
-  const [deadWeight, setDeadWeight] = useState('225')
-  const [benchReps, setBenchReps] = useState('9')
-  const [squatReps, setSquatReps] = useState('10')
-  const [barRowReps, setBarRowReps] = useState('12')
-  const [barPressReps, setBarPressReps] = useState('8')
-  const [deadReps, setDeadReps] = useState('8')
+const LiftTable = () => {
+  const [benchWeight, setBenchWeight, readBenchWeightData, onSubmitBenchWeight, onChangeBenchWeightText] = useBenchData()
+
+  const [benchReps, setBenchReps, readBenchRepsData, onSubmitBenchReps, onChangeBenchRepsText] = useBenchRepsData()
+
+  const [squatWeight, setSquatWeight, readSquatWeightData, onSubmitSquatWeightText, onChangeSquatWeightText] = useSquatData()
+
+  const [squatReps, setSquatReps, readSquatRepsData, onSubmitSquatReps, onChangeSquatRepsText] = useSquatRepsData()
+
+  const [barRowWeight, setBarRowWeight, readBarRowWeightData, onSubmitBarRowWeight, onChangeBarRowWeightText] = useBarbellRowData()
+
+  const [barRowReps, setBarRowReps, readBarRowRepsData, onSubmitBarRowReps, onChangeBarRowReps] = useBarbellRowRepsData()
+
+  const [barPressWeight, setBarPressWeight, readBarPressData,onSubmitBarPressWeight, onChangeBarPressWeightText] = useBarbellPressData()
+
+  const [barPressReps, setBarPressReps, readBarPressRepsData, onSubmitBarPressReps, onChangeBarPressRepsText] = useBarbellPressRepsData()
+
+  const [deadWeight, setDeadWeight, readDeadliftData, onSubmitDeadlift, onChangeDeadliftText] = useDeadliftData()
+
+  const [deadReps, setDeadReps, readDeadRepsData, onSubmitDeadReps, onChangeDeadRepsText] = useDeadliftRepsData()
+
+  // menu state
+  const [visible, setVisible] = useState(false)
+  const [menuVisible, setMenuVisible] = useState(false)
 
   const showModal = () => setVisible(true)
   const hideModal = () => setVisible(false)
   const containerStyle = {backgroundColor: 'white', margin: 40, flex: 1}
 
-  const [menuVisible, setMenuVisible] = useState(false)
-
   const openMenu = () => setMenuVisible(true)
   const closeMenu = () => setMenuVisible(false)
 
-  //This works!!! Now I gotta add the reps and make one for each exercise
+  const benchLiftSave = () => {
+    onSubmitBenchReps()
+    onSubmitBenchWeight()
+    setBenchControl(false)
+  }
+
+  const squatLiftSave = () => {
+    onSubmitSquatReps()
+    onSubmitSquatWeightText()
+    setSquatControl(false)
+  }
+
+  const barbellRowSave = () => {
+    onSubmitBarRowReps()
+    onSubmitBarRowWeight()
+    setBarRowControl(false)
+  }
+
+  const barbellPressSave = () => {
+    onSubmitBarPressReps()
+    onSubmitBarPressWeight()
+    setBarPressControl(false)
+  }
+
+  const deadliftSave = () => {
+    onSubmitDeadReps()
+    onSubmitDeadlift()
+    setDeadControl(false)
+  }
+
+  useEffect(() => {
+    readBenchWeightData()
+    readBenchRepsData()
+    readSquatWeightData()
+    readSquatRepsData()
+    readBarRowWeightData()
+    readBarRowRepsData()
+    readBarPressData()
+    readBarPressRepsData()
+    readDeadliftData()
+    readDeadRepsData()
+  }, [])
+
   const [benchControl, setBenchControl] = useState(false)
   const bWeightCnt = () => {
     if (benchControl) {
@@ -36,24 +96,23 @@ const LiftTable = () => {
           <TextInput 
             label='Bench Press Weight'
             value={benchWeight}
-            onChangeText={(num) => setBenchWeight(num)}
+            onChangeText={onChangeBenchWeightText}
           />
           <TextInput 
             label='Bench Press Reps'
             value={benchReps}
-            onChangeText={(num) => setBenchReps(num)}
+            onChangeText={onChangeBenchRepsText}
           />
           <Button
             style={{ width: 150, alignSelf: 'center' }}
             mode='outlined'
-            onPress={() => setBenchControl(false)}  
+            onPress={benchLiftSave}  
           >Finish Update</Button>
         </View>
       )
     }
   }
 
-  //Exercise controls for the modal
   const [squatControl, setSquatControl] = useState(false)
   const sWeightCnt = () => {
     if (squatControl) {
@@ -62,42 +121,17 @@ const LiftTable = () => {
           <TextInput 
             label='Bench Press Weight'
             value={squatWeight}
-            onChangeText={(num) => setSquatWeight(num)}
+            onChangeText={onChangeSquatWeightText}
           />
           <TextInput 
             label='Bench Press Reps'
             value={squatReps}
-            onChangeText={(num) => setSquatReps(num)}
+            onChangeText={onChangeSquatRepsText}
           />
           <Button
             style={{ width: 150, alignSelf: 'center' }}
             mode='outlined'
-            onPress={() => setSquatControl(false)}  
-          >Finish Update</Button>
-        </View>
-      )
-    }
-  }
-
-  const [barPressControl, setBarPressControl] = useState(false)
-  const barPressWeightCnt = () => {
-    if (barPressControl) {
-      return (
-        <View>
-          <TextInput 
-            label='Bench Press Weight'
-            value={barPressWeight}
-            onChangeText={(num) => setBarPressWeight(num)}
-          />
-          <TextInput 
-            label='Bench Press Reps'
-            value={barPressReps}
-            onChangeText={(num) => setBarPressReps(num)}
-          />
-          <Button
-            style={{ width: 150, alignSelf: 'center' }}
-            mode='outlined'
-            onPress={() => setBarPressControl(false)}  
+            onPress={squatLiftSave}  
           >Finish Update</Button>
         </View>
       )
@@ -112,17 +146,42 @@ const LiftTable = () => {
           <TextInput 
             label='Bench Press Weight'
             value={barRowWeight}
-            onChangeText={(num) => setBarRowWeight(num)}
+            onChangeText={onChangeBarRowWeightText}
           />
           <TextInput 
             label='Bench Press Reps'
             value={barRowReps}
-            onChangeText={(num) => setBarRowReps(num)}
+            onChangeText={onChangeBarRowReps}
           />
           <Button
             style={{ width: 150, alignSelf: 'center' }}
             mode='outlined'
-            onPress={() => setBarRowControl(false)}  
+            onPress={barbellRowSave}  
+          >Finish Update</Button>
+        </View>
+      )
+    }
+  }
+
+  const [barPressControl, setBarPressControl] = useState(false)
+  const barPressWeightCnt = () => {
+    if (barPressControl) {
+      return (
+        <View>
+          <TextInput 
+            label='Bench Press Weight'
+            value={barPressWeight}
+            onChangeText={onChangeBarPressWeightText}
+          />
+          <TextInput 
+            label='Bench Press Reps'
+            value={barPressReps}
+            onChangeText={onChangeBarPressRepsText}
+          />
+          <Button
+            style={{ width: 150, alignSelf: 'center' }}
+            mode='outlined'
+            onPress={barbellPressSave}  
           >Finish Update</Button>
         </View>
       )
@@ -137,17 +196,17 @@ const LiftTable = () => {
           <TextInput 
             label='Bench Press Weight'
             value={deadWeight}
-            onChangeText={(num) => setDeadWeight(num)}
+            onChangeText={onChangeDeadliftText}
           />
           <TextInput 
             label='Bench Press Reps'
             value={deadReps}
-            onChangeText={(num) => setDeadReps(num)}
+            onChangeText={onChangeDeadRepsText}
           />
           <Button
             style={{ width: 150, alignSelf: 'center' }}
             mode='outlined'
-            onPress={() => setDeadControl(false)}  
+            onPress={deadliftSave}  
           >Finish Update</Button>
         </View>
       )
@@ -252,8 +311,8 @@ const LiftTable = () => {
             Edit Lifts
           </Button>
 
-          <Title style={{ textAlign: 'center' }} >1 Rep Max</Title>
-          <Paragraph style={{ textAlign: 'center' }} >Keep the reps under 12 for the most accurate calculation</Paragraph>
+          <Title style={{ textAlign: 'center' }}>1 Rep Max</Title>
+          <Paragraph style={{ textAlign: 'center' }}>Keep the reps under 12 for the most accurate calculation</Paragraph>
           <DataTable>
             <DataTable.Header>
               <DataTable.Title>Exercises</DataTable.Title>
@@ -312,13 +371,7 @@ const LiftTable = () => {
 }
 
 const styles = StyleSheet.create({
-  modal: {
-  
-  },
   menu: {
-    // position: 'absolute',
-    // bottom: 260,
-    // right: 120,
     alignSelf: 'center'
   }
 })
