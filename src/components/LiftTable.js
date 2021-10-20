@@ -26,7 +26,7 @@ const LiftTable = () => {
 
   const [barRowReps, setBarRowReps, readBarRowRepsData, onSubmitBarRowReps, onChangeBarRowReps] = useBarbellRowRepsData()
 
-  const [barPressWeight, setBarPressWeight, readBarPressData,onSubmitBarPressWeight, onChangeBarPressWeightText] = useBarbellPressData()
+  const [barPressWeight, setBarPressWeight, readBarPressData, onSubmitBarPressWeight, onChangeBarPressWeightText] = useBarbellPressData()
 
   const [barPressReps, setBarPressReps, readBarPressRepsData, onSubmitBarPressReps, onChangeBarPressRepsText] = useBarbellPressRepsData()
 
@@ -39,7 +39,7 @@ const LiftTable = () => {
 
   const showModal = () => setVisible(true)
   const hideModal = () => setVisible(false)
-  const containerStyle = {backgroundColor: 'white', margin: 40, flex: 1}
+  const containerStyle = { backgroundColor: 'white', margin: 40, flex: 1, marginTop: 20, position: 'absolute', top: 100, left: 91 }
 
   const openMenu = () => setMenuVisible(true)
   const closeMenu = () => setMenuVisible(false)
@@ -92,21 +92,11 @@ const LiftTable = () => {
     if (benchControl) {
       return (
         <View>
-          <TextInput 
-            label='Bench Press Weight'
-            value={benchWeight}
-            onChangeText={onChangeBenchWeightText}
-          />
-          <TextInput 
-            label='Bench Press Reps'
-            value={benchReps}
-            onChangeText={onChangeBenchRepsText}
-          />
-          <Button
-            style={{ width: 150, alignSelf: 'center' }}
-            mode='outlined'
-            onPress={benchLiftSave}  
-          >Finish Update</Button>
+          <TextInput label='Bench Press Weight' value={benchWeight} onChangeText={onChangeBenchWeightText} />
+          <TextInput label='Bench Press Reps' value={benchReps} onChangeText={onChangeBenchRepsText} />
+          <Button style={{ width: 150, alignSelf: 'center' }} mode='outlined' onPress={benchLiftSave}>
+            Finish Update
+          </Button>
         </View>
       )
     }
@@ -117,21 +107,11 @@ const LiftTable = () => {
     if (squatControl) {
       return (
         <View>
-          <TextInput 
-            label='Bench Press Weight'
-            value={squatWeight}
-            onChangeText={onChangeSquatWeightText}
-          />
-          <TextInput 
-            label='Bench Press Reps'
-            value={squatReps}
-            onChangeText={onChangeSquatRepsText}
-          />
-          <Button
-            style={{ width: 150, alignSelf: 'center' }}
-            mode='outlined'
-            onPress={squatLiftSave}  
-          >Finish Update</Button>
+          <TextInput label='Bench Press Weight' value={squatWeight} onChangeText={onChangeSquatWeightText} />
+          <TextInput label='Bench Press Reps' value={squatReps} onChangeText={onChangeSquatRepsText} />
+          <Button style={{ width: 150, alignSelf: 'center' }} mode='outlined' onPress={squatLiftSave}>
+            Finish Update
+          </Button>
         </View>
       )
     }
@@ -142,21 +122,11 @@ const LiftTable = () => {
     if (barRowControl) {
       return (
         <View>
-          <TextInput 
-            label='Bench Press Weight'
-            value={barRowWeight}
-            onChangeText={onChangeBarRowWeightText}
-          />
-          <TextInput 
-            label='Bench Press Reps'
-            value={barRowReps}
-            onChangeText={onChangeBarRowReps}
-          />
-          <Button
-            style={{ width: 150, alignSelf: 'center' }}
-            mode='outlined'
-            onPress={barbellRowSave}  
-          >Finish Update</Button>
+          <TextInput label='Bench Press Weight' value={barRowWeight} onChangeText={onChangeBarRowWeightText} />
+          <TextInput label='Bench Press Reps' value={barRowReps} onChangeText={onChangeBarRowReps} />
+          <Button style={{ width: 150, alignSelf: 'center' }} mode='outlined' onPress={barbellRowSave}>
+            Finish Update
+          </Button>
         </View>
       )
     }
@@ -167,21 +137,11 @@ const LiftTable = () => {
     if (barPressControl) {
       return (
         <View>
-          <TextInput 
-            label='Bench Press Weight'
-            value={barPressWeight}
-            onChangeText={onChangeBarPressWeightText}
-          />
-          <TextInput 
-            label='Bench Press Reps'
-            value={barPressReps}
-            onChangeText={onChangeBarPressRepsText}
-          />
-          <Button
-            style={{ width: 150, alignSelf: 'center' }}
-            mode='outlined'
-            onPress={barbellPressSave}  
-          >Finish Update</Button>
+          <TextInput label='Bench Press Weight' value={barPressWeight} onChangeText={onChangeBarPressWeightText} />
+          <TextInput label='Bench Press Reps' value={barPressReps} onChangeText={onChangeBarPressRepsText} />
+          <Button style={{ width: 150, alignSelf: 'center' }} mode='outlined' onPress={barbellPressSave}>
+            Finish Update
+          </Button>
         </View>
       )
     }
@@ -192,21 +152,11 @@ const LiftTable = () => {
     if (deadControl) {
       return (
         <View>
-          <TextInput 
-            label='Bench Press Weight'
-            value={deadWeight}
-            onChangeText={onChangeDeadliftText}
-          />
-          <TextInput 
-            label='Bench Press Reps'
-            value={deadReps}
-            onChangeText={onChangeDeadRepsText}
-          />
-          <Button
-            style={{ width: 150, alignSelf: 'center' }}
-            mode='outlined'
-            onPress={deadliftSave}  
-          >Finish Update</Button>
+          <TextInput label='Bench Press Weight' value={deadWeight} onChangeText={onChangeDeadliftText} />
+          <TextInput label='Bench Press Reps' value={deadReps} onChangeText={onChangeDeadRepsText} />
+          <Button style={{ width: 150, alignSelf: 'center' }} mode='outlined' onPress={deadliftSave}>
+            Finish Update
+          </Button>
         </View>
       )
     }
@@ -240,27 +190,27 @@ const LiftTable = () => {
 
   //Gonna try to make a one rep max calculator; ended up finding this one
   const benchOneRepMax = () => {
-    const benchMax = Math.round((100 * benchWeight) / (101.3 - (2.67123 * benchReps)))
+    const benchMax = Math.round((100 * benchWeight) / (101.3 - 2.67123 * benchReps))
     return benchMax
   }
 
   const squatOneRepMax = () => {
-    const squatMax = Math.round((100 * squatWeight) / (101.3 - (2.67123 * squatReps)))
+    const squatMax = Math.round((100 * squatWeight) / (101.3 - 2.67123 * squatReps))
     return squatMax
   }
 
   const barRowOneRepMax = () => {
-    const barRowMax = Math.round((100 * barRowWeight) / (101.3 - (2.67123 * barRowReps)))
+    const barRowMax = Math.round((100 * barRowWeight) / (101.3 - 2.67123 * barRowReps))
     return barRowMax
   }
 
   const barPressOneRepMax = () => {
-    const barPressMax = Math.round((100 * barPressWeight) / (101.3 - (2.67123 * barPressReps)))
+    const barPressMax = Math.round((100 * barPressWeight) / (101.3 - 2.67123 * barPressReps))
     return barPressMax
   }
 
   const deadOneRepMax = () => {
-    const deadMax = Math.round((100 * deadWeight) / (101.3 - (2.67123 * deadReps)))
+    const deadMax = Math.round((100 * deadWeight) / (101.3 - 2.67123 * deadReps))
     return deadMax
   }
 
@@ -268,7 +218,7 @@ const LiftTable = () => {
     <>
       <Provider>
         <Portal>
-          <Title style={{ textAlign: 'center', marginTop: 15 }}>The Staple Compound Lifts</Title>
+          <Title style={{ textAlign: 'center', marginTop: 8 }}>The Staple Compound Lifts</Title>
           <DataTable>
             <DataTable.Header>
               <DataTable.Title>Exercises</DataTable.Title>
@@ -276,7 +226,7 @@ const LiftTable = () => {
               <DataTable.Title numeric>Reps</DataTable.Title>
             </DataTable.Header>
             <DataTable.Row>
-              <DataTable.Cell onPress={showModal} >Bench Press</DataTable.Cell>
+              <DataTable.Cell onPress={showModal}>Bench Press</DataTable.Cell>
               <DataTable.Cell numeric>{benchWeight}</DataTable.Cell>
               <DataTable.Cell numeric>{benchReps}</DataTable.Cell>
             </DataTable.Row>
@@ -302,16 +252,12 @@ const LiftTable = () => {
             </DataTable.Row>
           </DataTable>
 
-          <Button 
-            style={{ marginTop: 15 }} 
-            onPress={showModal}
-            mode='outlined'
-          >
+          <Button style={{ marginTop: 15 }} onPress={showModal} mode='outlined'>
             Edit Lifts
           </Button>
 
-          <Title style={{ textAlign: 'center' }}>1 Rep Max</Title>
-          <Paragraph style={{ textAlign: 'center' }}>Keep the reps under 12 for the most accurate calculation</Paragraph>
+          {/* <Title style={{ textAlign: 'center' }}>1 Rep Max</Title> */}
+          {/* <Paragraph style={{ textAlign: 'center' }}>Keep the reps under 12 for the most accurate calculation</Paragraph> */}
           <DataTable>
             <DataTable.Header>
               <DataTable.Title>Exercises</DataTable.Title>
@@ -342,17 +288,47 @@ const LiftTable = () => {
           {/* gotta keep this at the bottom */}
           <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
             <View>
-              <View style={styles.menu} >
+              <View style={styles.menu}>
                 <Menu
                   style={{ marginTop: 2 }}
                   visible={menuVisible}
                   onDismiss={closeMenu}
-                  anchor={<Button mode='outlined' onPress={openMenu}>Which lift?</Button>}>
-                  <Menu.Item onPress={() => {benchMenuControl()}} title="Bench Press" />
-                  <Menu.Item onPress={() => {squatMenuControl()}} title="Squat" />
-                  <Menu.Item onPress={() => {barRowMenuControl()}} title="Barbell Row" />
-                  <Menu.Item onPress={() => {barPressMenuControl()}} title="Barbell Press" />
-                  <Menu.Item onPress={() => {deadMenuControl()}} title="Deadlift" />
+                  anchor={
+                    <Button mode='outlined' onPress={openMenu}>
+                      Which lift?
+                    </Button>
+                  }
+                >
+                  <Menu.Item
+                    onPress={() => {
+                      benchMenuControl()
+                    }}
+                    title='Bench Press'
+                  />
+                  <Menu.Item
+                    onPress={() => {
+                      squatMenuControl()
+                    }}
+                    title='Squat'
+                  />
+                  <Menu.Item
+                    onPress={() => {
+                      barRowMenuControl()
+                    }}
+                    title='Barbell Row'
+                  />
+                  <Menu.Item
+                    onPress={() => {
+                      barPressMenuControl()
+                    }}
+                    title='Barbell Press'
+                  />
+                  <Menu.Item
+                    onPress={() => {
+                      deadMenuControl()
+                    }}
+                    title='Deadlift'
+                  />
                 </Menu>
               </View>
               {bWeightCnt()}
@@ -362,7 +338,6 @@ const LiftTable = () => {
               {deadWeightCnt()}
             </View>
           </Modal>
-            
         </Portal>
       </Provider>
     </>
@@ -371,8 +346,8 @@ const LiftTable = () => {
 
 const styles = StyleSheet.create({
   menu: {
-    alignSelf: 'center'
-  }
+    alignSelf: 'center',
+  },
 })
 
 export default withTheme(LiftTable)

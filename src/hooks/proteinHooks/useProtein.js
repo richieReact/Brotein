@@ -9,7 +9,7 @@ export default () => {
   const STORAGE_KEY00 = '@save_protein'
 
   const addProtein = () => {
-    const nmbProtein = (Number(protein) + Number(newProtein))
+    const nmbProtein = Number(protein) + Number(newProtein)
     console.log(nmbProtein)
     const strProtein = nmbProtein.toString()
 
@@ -28,9 +28,13 @@ export default () => {
   }
 
   const persistProtein = () => {
-
     saveProteinData(protein)
     setProtein(protein)
+    // alert('Protein saved!')
+
+    setTimeout(() => {
+      alert('Saved!')
+    }, 1000)
   }
 
   const saveProteinData = async () => {
@@ -52,5 +56,17 @@ export default () => {
     }
   }
 
-  return [protein, setProtein, saveProteinData, readProteinData, newProtein, setNewProtein, delProtein, setDelProtein, addProtein, persistProtein, clearProteinStorage]
+  return [
+    protein,
+    setProtein,
+    saveProteinData,
+    readProteinData,
+    newProtein,
+    setNewProtein,
+    delProtein,
+    setDelProtein,
+    addProtein,
+    persistProtein,
+    clearProteinStorage,
+  ]
 }

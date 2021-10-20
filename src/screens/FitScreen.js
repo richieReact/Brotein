@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { colors } from 'react-native-elements'
 import { Appbar, withTheme } from 'react-native-paper'
@@ -10,7 +10,6 @@ import Water from '../components/Water'
 import Measure from '../components/Measure'
 
 const FitScreen = ({ navigation }) => {
-
   return (
     <>
       <ProteinCard />
@@ -19,23 +18,11 @@ const FitScreen = ({ navigation }) => {
       <Spacer />
       <Measure />
       <Appbar style={styles.appBar}>
-        <Appbar.Action
-          size={30}
-          icon="food"
-          onPress={() => navigation.navigate('Fit')}
-        />
+        <Appbar.Action size={30} icon='food' onPress={() => navigation.navigate('Fit')} />
         <BigSpacer />
-        <Appbar.Action
-          size={30}
-          icon="weight-lifter" 
-          onPress={() => navigation.navigate('Lifties')} 
-        />
+        <Appbar.Action style={{ top: 3 }} size={30} icon='weight-lifter' onPress={() => navigation.navigate('Lifties')} />
         <BigSpacer />
-        <Appbar.Action
-          size={30}
-          icon="account"
-          onPress={() => navigation.navigate('Account')}
-        />
+        <Appbar.Action size={30} icon='account' onPress={() => navigation.navigate('Account')} />
       </Appbar>
     </>
   )
@@ -43,8 +30,7 @@ const FitScreen = ({ navigation }) => {
 
 FitScreen.navigationOptions = () => {
   return {
-    title: 'Brotein, your simple fitness tracker'
-  
+    title: 'Brotein, your simple fitness tracker',
   }
 }
 
@@ -56,8 +42,8 @@ const styles = StyleSheet.create({
     bottom: 0,
     color: colors.primary,
     height: 88,
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+  },
 })
 
 export default withTheme(FitScreen)
