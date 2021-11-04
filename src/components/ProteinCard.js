@@ -1,13 +1,6 @@
 import React, { useEffect } from 'react'
-import { View, StyleSheet } from 'react-native'
-import {
-  Card,
-  Title,
-  Paragraph,
-  withTheme,
-  Button,
-  TextInput,
-} from 'react-native-paper'
+import { View, StyleSheet, TextInput } from 'react-native'
+import { Card, Title, Paragraph, withTheme, Button } from 'react-native-paper'
 import { colors } from 'react-native-elements'
 
 import Spacer from './Spacer'
@@ -39,18 +32,10 @@ const ProteinCard = ({ theme }) => {
       <View style={{ color: colors.primary }}>
         <View>
           <Card>
-            <Card.Title
-              title="Today's Protein"
-              titleStyle={{ fontWeight: 'bold', fontSize: 21, marginLeft: 120 }}
-            />
+            <Card.Title title="Today's Protein" titleStyle={{ fontWeight: 'bold', fontSize: 21, marginLeft: 99 }} />
             <Card.Content>
-              <Title style={{ textAlign: 'center', marginTop: -5 }}>
-                {protein} grams
-              </Title>
-              <Paragraph style={{ textAlign: 'center' }}>
-                We recommend at least 1 gram of protein per pound of lean
-                bodyweight!
-              </Paragraph>
+              <Title style={{ textAlign: 'center', marginTop: -5 }}>{protein} grams</Title>
+              <Paragraph style={{ textAlign: 'center' }}>We recommend at least 1 gram of protein per pound of lean bodyweight!</Paragraph>
             </Card.Content>
           </Card>
         </View>
@@ -59,7 +44,7 @@ const ProteinCard = ({ theme }) => {
 
         <View style={styles.input}>
           <TextInput
-            style={{ flex: 1 }}
+            style={{ borderRadius: 80, width: 60, borderColor: 'white', backgroundColor: '#b3b3b3', textAlign: 'center', marginRight: 10 }}
             label='Add protein'
             value={newProtein}
             onChangeText={setNewProtein}
@@ -72,12 +57,14 @@ const ProteinCard = ({ theme }) => {
             mode='outlined'
             style={{
               height: 60,
+              width: 60,
               justifyContent: 'center',
               alignContent: 'center',
+              borderRadius: 80,
             }}
-          ></Button>
+          />
 
-          <Button
+          {/* <Button
             contentStyle={{ height: 60, width: 80 }}
             compact
             // icon='minus'
@@ -90,7 +77,7 @@ const ProteinCard = ({ theme }) => {
             }}
           >
             Save
-          </Button>
+          </Button> */}
           <Button
             contentStyle={{ height: 60, width: 80 }}
             compact
@@ -99,8 +86,10 @@ const ProteinCard = ({ theme }) => {
             mode='outlined'
             style={{
               height: 60,
+              width: 79,
               justifyContent: 'center',
               alignContent: 'center',
+              borderRadius: 80,
             }}
           >
             Clear
@@ -116,6 +105,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     height: 61,
+    justifyContent: 'center',
   },
   button: {
     color: colors.primary,

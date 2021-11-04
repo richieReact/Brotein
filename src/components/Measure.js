@@ -49,7 +49,9 @@ const Measure = () => {
 
   return (
     <>
-      <Text style={styles.title}>Measurements</Text>
+      <View style={{ alignItems: 'center' }}>
+        <Text style={styles.title}>Measurements</Text>
+      </View>
 
       <View style={{ flexDirection: 'row' }}>
         <View style={styles.row}>
@@ -148,9 +150,12 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     fontSize: 21,
-    marginLeft: 135,
+    // marginLeft: 135,
     marginBottom: 15,
-    marginTop: 10,
+    // marginTop: 10,
+    // justifyContent: 'center',
+    // alignContent: 'center',
+    // alignItems: 'center',
   },
   label: {
     fontSize: 16,

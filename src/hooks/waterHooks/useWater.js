@@ -9,11 +9,12 @@ export default () => {
   const STORAGE_KEY09 = '@save_water'
 
   const addWater = () => {
-    const nmbWater = (Number(water) + Number(moWater) * .0078)
+    const nmbWater = Number(water) + Number(moWater) * 0.0078
     const strWater = nmbWater.toString()
-        
+
     saveWaterData(strWater)
     setWater(strWater)
+    AsyncStorage.setItem(STORAGE_KEY09, strWater)
   }
 
   const clearStorage = async () => {
@@ -27,7 +28,6 @@ export default () => {
   }
 
   const persistWater = () => {
-
     saveWaterData(water)
     setWater(water)
   }

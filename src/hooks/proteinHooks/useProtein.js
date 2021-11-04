@@ -13,18 +13,9 @@ export default () => {
     console.log(nmbProtein)
     const strProtein = nmbProtein.toString()
 
-    saveProteinData(strProtein)
     setProtein(strProtein)
-  }
-
-  const clearProteinStorage = async () => {
-    try {
-      await AsyncStorage.removeItem(STORAGE_KEY00)
-
-      setProtein('0')
-    } catch (e) {
-      alert('oh nooo')
-    }
+    saveProteinData(strProtein)
+    AsyncStorage.setItem(STORAGE_KEY00, strProtein)
   }
 
   const persistProtein = () => {
@@ -35,6 +26,16 @@ export default () => {
     setTimeout(() => {
       alert('Saved!')
     }, 1000)
+  }
+
+  const clearProteinStorage = async () => {
+    try {
+      await AsyncStorage.removeItem(STORAGE_KEY00)
+
+      setProtein('0')
+    } catch (e) {
+      alert('oh nooo')
+    }
   }
 
   const saveProteinData = async () => {

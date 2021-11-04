@@ -39,7 +39,20 @@ const LiftTable = () => {
 
   const showModal = () => setVisible(true)
   const hideModal = () => setVisible(false)
-  const containerStyle = { backgroundColor: 'white', margin: 40, flex: 1, marginTop: 20, position: 'absolute', top: 100, left: 91 }
+  const containerStyle = {
+    backgroundColor: 'white',
+    margin: 40,
+    flex: 1,
+    marginTop: 20,
+    position: 'absolute',
+    top: 100,
+    left: 60,
+    fontSize: 40,
+    borderRadius: 80,
+  }
+  const contentStyle = {
+    fontSize: 100,
+  }
 
   const openMenu = () => setMenuVisible(true)
   const closeMenu = () => setMenuVisible(false)
@@ -294,7 +307,7 @@ const LiftTable = () => {
                   visible={menuVisible}
                   onDismiss={closeMenu}
                   anchor={
-                    <Button mode='outlined' onPress={openMenu}>
+                    <Button mode='text' onPress={openMenu} contentStyle={contentStyle} labelStyle={{ fontSize: 24 }}>
                       Which lift?
                     </Button>
                   }
