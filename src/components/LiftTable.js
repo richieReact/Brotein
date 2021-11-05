@@ -425,11 +425,14 @@ const LiftTable = ({ theme }) => {
           </DataTable>
 
           <Button
-            style={{ marginTop: 15, color: colors.primary }}
+            style={{ marginTop: 12.5, color: colors.primary }}
             color={colors.primary}
             contentStyle={{ color: colors.primary }}
-            onPress={showModal}
-            mode='outlined'
+            onPress={() => {
+              showModal()
+              setLiftButton(true)
+            }}
+            mode='contained'
           >
             Edit Lifts
           </Button>
@@ -442,7 +445,7 @@ const LiftTable = ({ theme }) => {
               <DataTable.Title numeric>1 Rep Max</DataTable.Title>
             </DataTable.Header>
             <DataTable.Row>
-              <DataTable.Cell onPress={showModal}>Bench Press</DataTable.Cell>
+              <DataTable.Cell>Bench Press</DataTable.Cell>
               <DataTable.Cell numeric>{benchOneRepMax()}</DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
@@ -464,7 +467,19 @@ const LiftTable = ({ theme }) => {
           </DataTable>
 
           {/* gotta keep this at the bottom */}
-          <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
+          <Modal
+            visible={visible}
+            onDismiss={() => {
+              hideModal()
+              closeMenu()
+              setBenchControl(false)
+              setSquatControl(false)
+              setBarRowControl(false)
+              setBarPressControl(false)
+              setDeadControl(false)
+            }}
+            contentContainerStyle={containerStyle}
+          >
             <View>
               <View style={styles.menu}>
                 <Menu
