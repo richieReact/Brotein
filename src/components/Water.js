@@ -33,7 +33,16 @@ const Water = ({ theme }) => {
 
       <View style={styles.input}>
         <TextInput
-          style={{ borderRadius: 80, width: 60, borderColor: 'white', backgroundColor: '#b3b3b3', textAlign: 'center', marginRight: 10 }}
+          style={{
+            borderRadius: 80,
+            width: 60,
+            borderColor: 'white',
+            backgroundColor: '#b3b3b3',
+            textAlign: 'center',
+            marginRight: 15,
+            fontSize: 21,
+          }}
+          keyboardType='number-pad'
           label='Add water'
           value={moWater}
           onChangeText={setMoWater}
@@ -44,7 +53,7 @@ const Water = ({ theme }) => {
           icon='plus'
           onPress={addWater}
           mode='outlined'
-          style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
+          style={{ height: 60, justifyContent: 'center', alignContent: 'center', borderRadius: 80, marginRight: 15 }}
         ></Button>
 
         {/* <Button 
@@ -55,11 +64,11 @@ const Water = ({ theme }) => {
           style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
         >Save</Button> */}
         <Button
-          contentStyle={{ height: 60, width: 80 }}
+          contentStyle={{ height: 60, width: 70, marginLeft: -5 }}
           compact
           onPress={clearStorage}
           mode='outlined'
-          style={{ height: 60, justifyContent: 'center', alignContent: 'center' }}
+          style={{ height: 60, width: 60, justifyContent: 'center', alignContent: 'center', borderRadius: 80 }}
         >
           Clear
         </Button>
