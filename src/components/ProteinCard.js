@@ -44,7 +44,16 @@ const ProteinCard = ({ theme }) => {
 
         <View style={styles.input}>
           <TextInput
-            style={{ borderRadius: 80, width: 60, borderColor: 'white', backgroundColor: '#b3b3b3', textAlign: 'center', marginRight: 10 }}
+            style={{
+              borderRadius: 80,
+              width: 60,
+              borderColor: 'white',
+              backgroundColor: '#b3b3b3',
+              textAlign: 'center',
+              marginRight: 15,
+              fontSize: 21,
+            }}
+            keyboardType='number-pad'
             label='Add protein'
             value={newProtein}
             onChangeText={setNewProtein}
@@ -61,6 +70,7 @@ const ProteinCard = ({ theme }) => {
               justifyContent: 'center',
               alignContent: 'center',
               borderRadius: 80,
+              marginRight: 15,
             }}
           />
 
@@ -79,14 +89,14 @@ const ProteinCard = ({ theme }) => {
             Save
           </Button> */}
           <Button
-            contentStyle={{ height: 60, width: 80 }}
+            contentStyle={{ height: 60, width: 70, marginLeft: -5 }}
             compact
             // icon='minus'
             onPress={clearProteinStorage}
             mode='outlined'
             style={{
               height: 60,
-              width: 79,
+              width: 60,
               justifyContent: 'center',
               alignContent: 'center',
               borderRadius: 80,
