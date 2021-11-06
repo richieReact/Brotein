@@ -30,7 +30,11 @@ const FitScreen = ({ navigation }) => {
 
 FitScreen.navigationOptions = () => {
   return {
-    title: 'Brotein, your simple fitness tracker',
+    title: 'Brotein',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      fontSize: 28,
+    },
   }
 }
 

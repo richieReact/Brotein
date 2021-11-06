@@ -56,7 +56,14 @@ const Measure = () => {
       <View style={{ flexDirection: 'row' }}>
         <View style={styles.row}>
           <Text style={styles.label}>Weight</Text>
-          <TextInput value={weight} onChangeText={onChangeWeightText} onSubmitEditing={onSubmitWeight} style={styles.input} />
+          <TextInput
+            keyboardType='number-pad'
+            keyboardAppearance='dark'
+            value={weight}
+            onChangeText={onChangeWeightText}
+            onSubmitEditing={onSubmitWeight}
+            style={styles.input}
+          />
           <Button compact mode='outlined' onPress={onSubmitWeight}>
             Save
           </Button>
@@ -64,7 +71,14 @@ const Measure = () => {
 
         <View style={styles.row}>
           <Text style={styles.label}>Arms</Text>
-          <TextInput value={arms} onChangeText={onChangeArmsText} onSubmitEditing={onSubmitArms} style={styles.input} />
+          <TextInput
+            keyboardType='number-pad'
+            keyboardAppearance='dark'
+            value={arms}
+            onChangeText={onChangeArmsText}
+            onSubmitEditing={onSubmitArms}
+            style={styles.input}
+          />
           <Button compact mode='outlined' onPress={onSubmitArms}>
             Save
           </Button>
@@ -72,7 +86,14 @@ const Measure = () => {
 
         <View style={styles.row}>
           <Text style={styles.label}>Waist</Text>
-          <TextInput value={waist} onChangeText={onChangeWaistText} onSubmitEditing={onSubmitWaist} style={styles.input} />
+          <TextInput
+            keyboardType='number-pad'
+            keyboardAppearance='dark'
+            value={waist}
+            onChangeText={onChangeWaistText}
+            onSubmitEditing={onSubmitWaist}
+            style={styles.input}
+          />
           <Button compact mode='outlined' onPress={onSubmitWaist}>
             Save
           </Button>
@@ -80,7 +101,14 @@ const Measure = () => {
 
         <View style={styles.row}>
           <Text style={styles.label}>Chest</Text>
-          <TextInput value={chest} onChangeText={onChangeChestText} onSubmitEditing={onSubmitChest} style={styles.input} />
+          <TextInput
+            keyboardType='number-pad'
+            keyboardAppearance='dark'
+            value={chest}
+            onChangeText={onChangeChestText}
+            onSubmitEditing={onSubmitChest}
+            style={styles.input}
+          />
           <Button compact mode='outlined' onPress={onSubmitChest}>
             Save
           </Button>
@@ -88,7 +116,14 @@ const Measure = () => {
 
         <View style={styles.row}>
           <Text style={styles.label}>Thighs</Text>
-          <TextInput value={thighs} onChangeText={onChangeThighsText} onSubmitEditing={onSubmitThighs} style={styles.input} />
+          <TextInput
+            keyboardType='number-pad'
+            keyboardAppearance='dark'
+            value={thighs}
+            onChangeText={onChangeThighsText}
+            onSubmitEditing={onSubmitThighs}
+            style={styles.input}
+          />
           <Button compact mode='outlined' onPress={onSubmitThighs}>
             Save
           </Button>
@@ -98,7 +133,14 @@ const Measure = () => {
       <View style={{ flexDirection: 'row', marginTop: 75 }}>
         <View style={styles.row}>
           <Text style={styles.label}>BodyFat%</Text>
-          <TextInput value={bodyFat} onChangeText={onChangeBodyFatText} onSubmitEditing={onSubmitBodyFat} style={styles.input} />
+          <TextInput
+            keyboardType='number-pad'
+            keyboardAppearance='dark'
+            value={bodyFat}
+            onChangeText={onChangeBodyFatText}
+            onSubmitEditing={onSubmitBodyFat}
+            style={styles.input}
+          />
           <Button compact mode='outlined' onPress={onSubmitBodyFat}>
             Save
           </Button>
@@ -106,7 +148,14 @@ const Measure = () => {
 
         <View style={styles.row}>
           <Text style={styles.label}>Forearms</Text>
-          <TextInput value={forearms} onChangeText={onChangeForearmsText} onSubmitEditing={onSubmitForearms} style={styles.input} />
+          <TextInput
+            keyboardType='number-pad'
+            keyboardAppearance='dark'
+            value={forearms}
+            onChangeText={onChangeForearmsText}
+            onSubmitEditing={onSubmitForearms}
+            style={styles.input}
+          />
           <Button compact mode='outlined' onPress={onSubmitForearms}>
             Save
           </Button>
@@ -114,7 +163,14 @@ const Measure = () => {
 
         <View style={styles.row}>
           <Text style={styles.label}>Hips</Text>
-          <TextInput value={hips} onChangeText={onChangeHipsText} onSubmitEditing={onSubmitHips} style={styles.input} />
+          <TextInput
+            keyboardType='number-pad'
+            keyboardAppearance='dark'
+            value={hips}
+            onChangeText={onChangeHipsText}
+            onSubmitEditing={onSubmitHips}
+            style={styles.input}
+          />
           <Button compact mode='outlined' onPress={onSubmitHips}>
             Save
           </Button>
@@ -122,7 +178,14 @@ const Measure = () => {
 
         <View style={styles.row}>
           <Text style={styles.label}>Shoulders</Text>
-          <TextInput value={shoulders} onChangeText={onChangeShouldersText} onSubmitEditing={onSubmitShoulders} style={styles.input} />
+          <TextInput
+            keyboardType='number-pad'
+            keyboardAppearance='dark'
+            value={shoulders}
+            onChangeText={onChangeShouldersText}
+            onSubmitEditing={onSubmitShoulders}
+            style={styles.input}
+          />
           <Button compact mode='outlined' onPress={onSubmitShoulders}>
             Save
           </Button>
@@ -130,7 +193,14 @@ const Measure = () => {
 
         <View style={styles.row}>
           <Text style={styles.label}>Calves</Text>
-          <TextInput value={calves} onChangeText={onChangeCalvesText} onSubmitEditing={onSubmitCalves} style={styles.input} />
+          <TextInput
+            keyboardType='number-pad'
+            keyboardAppearance='dark'
+            value={calves}
+            onChangeText={onChangeCalvesText}
+            onSubmitEditing={onSubmitCalves}
+            style={styles.input}
+          />
           <Button compact mode='outlined' onPress={onSubmitCalves}>
             Save
           </Button>

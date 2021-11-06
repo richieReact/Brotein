@@ -432,7 +432,7 @@ const LiftTable = ({ theme }) => {
               showModal()
               setLiftButton(true)
             }}
-            mode='contained'
+            mode='outlined'
           >
             Edit Lifts
           </Button>

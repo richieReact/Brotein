@@ -44,6 +44,8 @@ const ProteinCard = ({ theme }) => {
 
         <View style={styles.input}>
           <TextInput
+            keyboardType='number-pad'
+            keyboardAppearance='dark'
             style={{
               borderRadius: 80,
               width: 60,
