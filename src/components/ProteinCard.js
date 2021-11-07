@@ -27,6 +27,14 @@ const ProteinCard = ({ theme }) => {
 
   const { colors } = theme
 
+  // const dateCheck = () => {
+  //   const date = new Date()
+
+  //   console.log(date.getDay())
+  // }
+
+  // dateCheck()
+
   return (
     <>
       <View style={{ color: colors.primary }}>
@@ -76,20 +84,6 @@ const ProteinCard = ({ theme }) => {
             }}
           />
 
-          {/* <Button
-            contentStyle={{ height: 60, width: 80 }}
-            compact
-            // icon='minus'
-            onPress={persistProtein}
-            mode='outlined'
-            style={{
-              height: 60,
-              justifyContent: 'center',
-              alignContent: 'center',
-            }}
-          >
-            Save
-          </Button> */}
           <Button
             contentStyle={{ height: 60, width: 70, marginLeft: -5 }}
             compact
