@@ -10,7 +10,6 @@ export default () => {
 
   const STORAGE_KEY00 = '@save_protein'
   const STORAGE_KEY54 = '@save_protein_date'
-  const STORAGE_KEY55 = '@save_new_date'
 
   const addProtein = () => {
     const nmbProtein = Number(protein) + Number(newProtein)
