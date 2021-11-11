@@ -60,7 +60,7 @@ export default () => {
       // AsyncStorage.setItem(STORAGE_KEY55, numDay)
       console.log('stage 1 complete')
 
-      if (date != newDay) {
+      if (date != day) {
         AsyncStorage.removeItem(STORAGE_KEY09)
         setWater('0')
         console.log('The Water was reset')

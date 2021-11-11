@@ -16,8 +16,9 @@ export default () => {
     const strProtein = nmbProtein.toString()
     const entryDate = new Date()
     const savedDate = entryDate.getDay()
+    console.log(savedDate + ' is the added protein day')
     const strDate = savedDate.toString()
-    console.log(savedDate + ' is the date of the saved protein')
+    console.log(strDate + ' is the date of the saved protein')
     setDate(strDate)
     AsyncStorage.setItem(STORAGE_KEY54, strDate)
 
@@ -65,8 +66,10 @@ export default () => {
       console.log(newDay + ' is the current day')
       // AsyncStorage.setItem(STORAGE_KEY55, numDay)
       console.log('stage 1 complete')
+      console.log(date + ' and ' + newDay)
 
-      if (date != newDay) {
+      if (date != day) {
+        console.log(date + ' is the date')
         AsyncStorage.removeItem(STORAGE_KEY00)
         setProtein('0')
         console.log('The Protein was reset')
