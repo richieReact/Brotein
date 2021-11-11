@@ -58,17 +58,13 @@ export default () => {
   const readProteinData = async () => {
     try {
       const newDate = new Date()
-      console.log(newDate + ' is the date')
       const newDay = newDate.getDay()
-      console.log(newDay + ' is the day')
       const numDay = newDay.toString()
       setDay(numDay)
-      console.log(newDay + ' is the current day')
       // AsyncStorage.setItem(STORAGE_KEY55, numDay)
-      console.log('stage 1 complete')
-      console.log(date + ' and ' + newDay)
+      const lastEntry = await AsyncStorage.getItem(STORAGE_KEY54)
 
-      if (date != day) {
+      if (numDay !== lastEntry) {
         console.log(date + ' is the date')
         AsyncStorage.removeItem(STORAGE_KEY00)
         setProtein('0')

@@ -7,31 +7,28 @@ import LiftTable from '../components/LiftTable'
 import BigSpacer from '../components/BigSpacer'
 
 const LiftScreen = ({ navigation }) => {
-  
   return (
     <>
       <LiftTable />
       <Appbar style={styles.appBar}>
-        <Appbar.Action
-          size={30}
-          icon="food"
-          onPress={() => navigation.navigate('Fit')}
-        />
+        <Appbar.Action size={30} icon='food' onPress={() => navigation.navigate('Fit')} />
         <BigSpacer />
-        <Appbar.Action
-          size={30}
-          icon="weight-lifter" 
-          onPress={() => navigation.navigate('Lifties')} 
-        />
+        <Appbar.Action size={30} icon='weight-lifter' onPress={() => navigation.navigate('Lifties')} />
         <BigSpacer />
-        <Appbar.Action
-          size={30}
-          icon="account"
-          onPress={() => navigation.navigate('Account')}
-        />
+        <Appbar.Action size={30} icon='account' onPress={() => navigation.navigate('Account')} />
       </Appbar>
     </>
   )
+}
+
+LiftScreen.navigationOptions = () => {
+  return {
+    title: 'Lifts',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      fontSize: 28,
+    },
+  }
 }
 
 const styles = StyleSheet.create({
@@ -42,8 +39,8 @@ const styles = StyleSheet.create({
     bottom: 0,
     color: colors.primary,
     height: 88,
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+  },
 })
 
 export default withTheme(LiftScreen)

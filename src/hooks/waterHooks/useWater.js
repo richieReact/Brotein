@@ -51,16 +51,15 @@ export default () => {
   const readWaterData = async () => {
     try {
       const newDate = new Date()
-      console.log(newDate + ' is the date')
       const newDay = newDate.getDay()
-      console.log(newDay + ' is the day')
       const numDay = newDay.toString()
       setDay(numDay)
-      console.log(newDay + ' is the current day')
+      console.log(numDay + ' is the current day')
       // AsyncStorage.setItem(STORAGE_KEY55, numDay)
-      console.log('stage 1 complete')
+      const lastEntry = await AsyncStorage.getItem(STORAGE_KEY91)
+      console.log(lastEntry + ' is the lastEntry')
 
-      if (date != day) {
+      if (numDay !== lastEntry) {
         AsyncStorage.removeItem(STORAGE_KEY09)
         setWater('0')
         console.log('The Water was reset')

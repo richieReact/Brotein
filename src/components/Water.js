@@ -28,7 +28,7 @@ const Water = ({ theme }) => {
     <>
       <Text style={styles.title}>Water Intake | Get that gallon (128 oz)</Text>
       <Spacer />
-      <ProgressBar progress={water} color={Colors.blue500} />
+      <ProgressBar progress={water} color={Colors.blue500} style={{ width: '85%', alignSelf: 'center', border: '1px grey' }} />
       <Spacer />
 
       <View style={styles.input}>
