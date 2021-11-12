@@ -22,7 +22,7 @@ const FitScreen = ({ navigation }) => {
         <BigSpacer />
         <Appbar.Action style={{ top: 3 }} size={30} icon='weight-lifter' onPress={() => navigation.navigate('Lifties')} />
         <BigSpacer />
-        <Appbar.Action size={30} icon='account' onPress={() => navigation.navigate('Account')} />
+        <Appbar.Action size={30} icon='calendar' onPress={() => navigation.navigate('Account')} />
       </Appbar>
     </>
   )
