@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, Text, ScrollView } from 'react-native'
-import { Appbar } from 'react-native-paper'
+import { Appbar, TextInput } from 'react-native-paper'
 import { colors } from 'react-native-elements'
 
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import moment from 'moment'
 
 import BigSpacer from '../components/BigSpacer'
 
@@ -21,19 +22,33 @@ const AccountScreen = ({ navigation }) => {
   // 2. Push a new object onto the markedDates array with those props it needs
   // 3. Set the state and save it in AsyncStorage
 
-  const dayEvents = (date) => {
-    let mark = {}
-    mark[date] = {
-      selected: true,
-      color: '#4B0082',
-    }
+  const _format = 'YYYY-MM-DD'
 
-    // const dateObject = {
+  const dayEvents = (date) => {
+    // saving this for records
+    // let mark = {}
+    // mark[date] = {
     //   selected: true,
     //   color: '#4B0082',
     // }
+    // setMarkedDates({ ...markedDates, ...mark }) // holy shit lmfao it works
+    // console.log(markedDates)
 
-    setMarkedDates({ ...markedDates, ...mark }) // holy shit lmfao it works
+    const _selectedDay = moment(date).format(_format)
+
+    let marked = true
+    let selected = true
+
+    // this is the toggle, this checks if the date is already marks and switches it
+    if (markedDates[_selectedDay]) {
+      marked = !markedDates[_selectedDay].marked
+      selected = !markedDates[_selectedDay].selected
+    }
+
+    // this is a way to create a new obejct to be pushed onto the dates
+    const updatedMarkedDates = { ...markedDates, ...{ [_selectedDay]: { marked, selected } } }
+
+    setMarkedDates({ ...markedDates, ...updatedMarkedDates })
     console.log(markedDates)
   }
 
@@ -43,6 +58,8 @@ const AccountScreen = ({ navigation }) => {
       <View>
         <Calendar onDayPress={(day) => dayEvents(day.dateString)} markedDates={markedDates} />
       </View>
+
+      {/* The Appbar, keep at the bottom  */}
       <Appbar style={styles.appBar}>
         <Appbar.Action size={30} icon='food' onPress={() => navigation.navigate('Fit')} />
         <BigSpacer />
