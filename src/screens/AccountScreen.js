@@ -46,6 +46,7 @@ const AccountScreen = ({ navigation }) => {
     }
 
     // this is a way to create a new obejct to be pushed onto the dates
+    // could I attach a workout form to this object this pops up on press?
     const updatedMarkedDates = { ...markedDates, ...{ [_selectedDay]: { marked, selected } } }
 
     setMarkedDates({ ...markedDates, ...updatedMarkedDates })
