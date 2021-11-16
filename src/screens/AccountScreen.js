@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, Text, ScrollView } from 'react-native'
-import { Appbar, TextInput } from 'react-native-paper'
+import { Appbar, TextInput, Modal, Provider, Portal, Menu } from 'react-native-paper'
 import { colors } from 'react-native-elements'
 
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars'
@@ -11,6 +11,13 @@ import BigSpacer from '../components/BigSpacer'
 
 const AccountScreen = ({ navigation }) => {
   const [markedDates, setMarkedDates] = useState([{}])
+  const [menu, setMenu] = useState(false)
+  const [workoutType, setWorkoutType] = useState('')
+  const [visible, setVisible] = useState(false)
+  const [workoutView, setWorkoutView] = useState(false)
+
+  const showModal = () => setVisible(true)
+  const hideModal = () => setVisible(false)
 
   const STORAGE_KEY = '@save_dates'
 
@@ -33,32 +40,95 @@ const AccountScreen = ({ navigation }) => {
     // }
     // setMarkedDates({ ...markedDates, ...mark }) // holy shit lmfao it works
     // console.log(markedDates)
+    // setMenu(true)
+    // showModal()
 
     const _selectedDay = moment(date).format(_format)
 
     let marked = true
     let selected = true
+    let workout = workoutType
 
-    // this is the toggle, this checks if the date is already marks and switches it
-    if (markedDates[_selectedDay]) {
-      marked = !markedDates[_selectedDay].marked
-      selected = !markedDates[_selectedDay].selected
+    // // this is the toggle, this checks if the date is already marked and switches it
+    // if (markedDates[_selectedDay]) {
+    //   marked = !markedDates[_selectedDay].marked
+    //   selected = !markedDates[_selectedDay].selected
+    // }
+
+    if (markedDates[_selectedDay] && workoutView) {
+      setWorkoutView(false)
+    } else if (markedDates[_selectedDay]) {
+      setWorkoutView(true)
     }
 
-    // this is a way to create a new obejct to be pushed onto the dates
+    // this is a way to create a new object to be pushed onto the dates
     // could I attach a workout form to this object this pops up on press?
-    const updatedMarkedDates = { ...markedDates, ...{ [_selectedDay]: { marked, selected } } }
+    const updatedMarkedDates = { ...markedDates, ...{ [_selectedDay]: { marked, selected, workout } } }
 
     setMarkedDates({ ...markedDates, ...updatedMarkedDates })
     console.log(markedDates)
   }
 
+  // const workoutMenu = () => {
+  //   return <TextInput label='Type of Workout?' />
+  // }
+
+  const workoutMenu = () => {
+    return (
+      <View>
+        <Text>{workoutType}</Text>
+      </View>
+    )
+  }
+  const deleteDay = (date) => {
+    const _selectedDay2 = moment(date).format(_format)
+    let marked = true
+    let selected = true
+
+    if (markedDates[_selectedDay2]) {
+      setWorkoutView(false)
+
+      marked = !markedDates[_selectedDay2].marked
+      selected = !markedDates[_selectedDay2].selected
+
+      const updatedMarkedDates = { ...markedDates, ...{ [_selectedDay2]: {} } }
+
+      setMarkedDates({ ...markedDates, ...updatedMarkedDates })
+
+      console.log('I got through deleteDay')
+    }
+  }
+
   return (
     <>
-      <Text style={{ alignSelf: 'center', margin: 15, fontSize: 25 }}>Track your Workouts</Text>
-      <View>
-        <Calendar onDayPress={(day) => dayEvents(day.dateString)} markedDates={markedDates} />
-      </View>
+      <Provider>
+        <Portal>
+          <Text style={{ alignSelf: 'center', margin: 15, fontSize: 25 }}>Track your Workouts</Text>
+          <View style={{ alignSelf: 'center', width: '35%', textAlign: 'center' }}>
+            <TextInput label='Workout Type' onChangeText={setWorkoutType} dark />
+          </View>
+          <View>
+            <Calendar
+              onDayPress={(day) => dayEvents(day.dateString)}
+              onDayLongPress={(day) => deleteDay(day.dateString)}
+              markedDates={markedDates}
+            />
+          </View>
+          {workoutView ? <Text>{workoutType}</Text> : null}
+
+          {menu ? workoutMenu() : null}
+          <Modal
+            visible={visible}
+            onDismiss={() => {
+              hideModal()
+            }}
+          >
+            <View style={{ alignSelf: 'center', width: '60%', alignContent: 'center', justifyContent: 'center', marginTop: -45 }}>
+              <Menu anchor={<TextInput onChangeText={setWorkoutType} label='Type of workout?' />}></Menu>
+            </View>
+          </Modal>
+        </Portal>
+      </Provider>
 
       {/* The Appbar, keep at the bottom  */}
       <Appbar style={styles.appBar}>
