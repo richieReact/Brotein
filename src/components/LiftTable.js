@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { DataTable, withTheme, Title, Modal, Portal, Provider, Button, TextInput, Menu, Paragraph } from 'react-native-paper'
-import { colors } from 'react-native-elements'
 
 import Spacer from '../components/Spacer'
 
