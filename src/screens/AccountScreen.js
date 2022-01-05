@@ -10,7 +10,7 @@ import moment from 'moment'
 import BigSpacer from '../components/BigSpacer'
 
 const AccountScreen = ({ navigation, theme }) => {
-  const [markedDates, setMarkedDates] = useState([{}])
+  const [markedDates, setMarkedDates] = useState('')
   const [menu, setMenu] = useState(false)
   const [workoutType, setWorkoutType] = useState('')
   const [visible, setVisible] = useState(false)
@@ -41,10 +41,6 @@ const AccountScreen = ({ navigation, theme }) => {
   const dayEvents = (date) => {
     const _selectedDay = moment(date).format(_format)
 
-    let marked = true
-    let selected = true
-    let workout = workoutType
-
     if (markedDates[_selectedDay] && workoutView) {
       setWorkoutView(false)
     } else if (markedDates[_selectedDay]) {
@@ -60,7 +56,7 @@ const AccountScreen = ({ navigation, theme }) => {
     setDate(_selectedDay)
 
     // setMarkedDates({ ...markedDates, ...updatedMarkedDates })
-    // console.log(markedDates)
+    console.log(markedDates)
   }
 
   const deleteDay = (date) => {
@@ -104,6 +100,8 @@ const AccountScreen = ({ navigation, theme }) => {
               markedDates={markedDates}
             />
           </View>
+          <Button onPress={() => console.log(markedDates.Object['2021-12-29'].workout)}>Console Log markedDates</Button>
+
           {workoutView ? (
             <>
               <Text>{date}</Text>
@@ -149,9 +147,7 @@ const AccountScreen = ({ navigation, theme }) => {
       <Appbar style={styles.appBar}>
         <Appbar.Action size={30} icon='food' onPress={() => navigation.navigate('Fit')} />
         <BigSpacer />
-        <Appbar.Action size={30} icon='weight-lifter' onPress={() => navigation.navigate('Lifties')} />
-        <BigSpacer />
-        <Appbar.Action size={30} icon='calendar' onPress={() => navigation.navigate('Account')} />
+        <Appbar.Action size={30} icon='weight-lifter' onPress={() => navigation.navigate('Lifties')} />s{' '}
       </Appbar>
     </>
   )
@@ -159,7 +155,7 @@ const AccountScreen = ({ navigation, theme }) => {
 
 AccountScreen.navigationOptions = () => {
   return {
-    title: 'Calendar',
+    title: 'Some Important Tool for Lifters',
     headerTitleStyle: {
       fontWeight: 'bold',
       fontSize: 28,

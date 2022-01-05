@@ -27,14 +27,6 @@ const ProteinCard = ({ theme }) => {
 
   const { colors } = theme
 
-  // const dateCheck = () => {
-  //   const date = new Date()
-
-  //   console.log(date.getDay())
-  // }
-
-  // dateCheck()
-
   return (
     <>
       <View style={{ color: colors.primary }}>
@@ -43,6 +35,7 @@ const ProteinCard = ({ theme }) => {
             <Card.Title title="Today's Protein" titleStyle={{ fontWeight: 'bold', fontSize: 21, marginLeft: 99 }} />
             <Card.Content>
               <Title style={{ textAlign: 'center', marginTop: -5 }}>{protein} grams</Title>
+
               <Paragraph style={{ textAlign: 'center' }}>We recommend at least 1 gram of protein per pound of lean bodyweight!</Paragraph>
             </Card.Content>
           </Card>
