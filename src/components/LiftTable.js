@@ -424,14 +424,15 @@ const LiftTable = ({ theme }) => {
           </DataTable>
 
           <Button
-            style={{ marginTop: 12.5, color: colors.primary }}
+            style={{ marginTop: 12.5, color: colors.primary, width: 100, alignSelf: 'center' }}
             color={colors.primary}
             contentStyle={{ color: colors.primary }}
             onPress={() => {
               showModal()
               setLiftButton(true)
             }}
-            mode='outlined'
+            mode='text'
+            compact
           >
             Edit Lifts
           </Button>

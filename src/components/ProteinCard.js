@@ -36,7 +36,9 @@ const ProteinCard = ({ theme }) => {
             <Card.Content>
               <Title style={{ textAlign: 'center', marginTop: -5 }}>{protein} grams</Title>
 
-              <Paragraph style={{ textAlign: 'center' }}>We recommend at least 1 gram of protein per pound of lean bodyweight!</Paragraph>
+              <Paragraph style={{ textAlign: 'center', fontSize: 14 }}>
+                We recommend at least 1 gram of protein per pound of lean bodyweight!
+              </Paragraph>
             </Card.Content>
           </Card>
         </View>

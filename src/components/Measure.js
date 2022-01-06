@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
   },
   label: {
-    fontSize: 16,
+    fontSize: 14,
     textAlign: 'center',
     marginBottom: 10,
     textAlignVertical: 'bottom',
