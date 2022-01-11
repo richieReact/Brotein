@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default () => {
-  const [thighs, setThighs] = useState('200')
+  const [thighs, setThighs] = useState('0')
 
   // Attemp at AsyncStorage for the weight; it works!
   const STORAGE_KEY7 = '@save_thighs'
@@ -19,7 +19,7 @@ export default () => {
   const readThighsData = async () => {
     try {
       const userThighs = await AsyncStorage.getItem(STORAGE_KEY7)
-  
+
       if (userThighs !== null) {
         setThighs(userThighs)
       }
@@ -30,12 +30,12 @@ export default () => {
 
   const onSubmitThighs = () => {
     if (!thighs) return
-  
+
     saveThighsData(thighs)
     setThighs(thighs)
   }
 
-  const onChangeThighsText = userThighs => setThighs(userThighs)
+  const onChangeThighsText = (userThighs) => setThighs(userThighs)
 
   return [thighs, setThighs, saveThighsData, readThighsData, onSubmitThighs, onChangeThighsText]
 }

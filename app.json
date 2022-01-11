@@ -17,13 +17,14 @@
       "**/*"
     ],
     "ios": {
-      "ios" : {
+      "ios": {
         "infoPlist": {
           "bundleIdentifier": "com.channell.Brotein"
         }
       },
       "supportsTablet": false,
-      "buildNumber": "1.0.0"
+      "buildNumber": "1.0.0",
+      "bundleIdentifier": "com.channell.Brotein"
     },
     "android": {
       "package": "com.channell.Brotein",

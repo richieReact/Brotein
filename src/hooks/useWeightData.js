@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default () => {
-  const [weight, setWeight] = useState('200')
+  const [weight, setWeight] = useState('0')
 
   // Attemp at AsyncStorage for the weight; it works!
   const STORAGE_KEY = '@save_weight'
@@ -19,7 +19,7 @@ export default () => {
   const readWeightData = async () => {
     try {
       const userWeight = await AsyncStorage.getItem(STORAGE_KEY)
-  
+
       if (userWeight !== null) {
         setWeight(userWeight)
       }
@@ -30,12 +30,12 @@ export default () => {
 
   const onSubmitWeight = () => {
     if (!weight) return
-  
+
     saveWeightData(weight)
     setWeight(weight)
   }
 
-  const onChangeWeightText = userWeight => setWeight(userWeight)
+  const onChangeWeightText = (userWeight) => setWeight(userWeight)
 
   return [weight, setWeight, saveWeightData, readWeightData, onSubmitWeight, onChangeWeightText]
 }
