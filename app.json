@@ -17,7 +17,6 @@
       "**/*"
     ],
     "ios": {
-      "ios": {
         "infoPlist": {
           "bundleIdentifier": "com.channell.Brotein"
         }
@@ -38,4 +37,4 @@
       "favicon": "./assets/favicon.png"
     }
   }
-}
+
