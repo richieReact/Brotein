@@ -17,24 +17,24 @@
       "**/*"
     ],
     "ios": {
-        "infoPlist": {
-          "bundleIdentifier": "com.channell.Brotein"
-        }
+      "infoPlist": {
+        "bundleIdentifier": "com.channell.Brotein"
       },
-      "supportsTablet": false,
-      "buildNumber": "1.0.2",
       "bundleIdentifier": "com.channell.Brotein"
     },
-    "android": {
-      "package": "com.channell.Brotein",
-      "versionCode": 1,
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "supportsTablet": false,
+    "buildNumber": "1.0.2",
+    "bundleIdentifier": "com.channell.Brotein"
+  },
+  "android": {
+    "package": "com.channell.Brotein",
+    "versionCode": 1,
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/adaptive-icon.png",
+      "backgroundColor": "#FFFFFF"
     }
+  },
+  "web": {
+    "favicon": "./assets/favicon.png"
   }
-
+}
