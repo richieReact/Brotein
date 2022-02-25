@@ -44,7 +44,6 @@ const Water = ({ theme }) => {
             marginRight: 15,
             fontSize: 21,
           }}
-          keyboardType='number-pad'
           label='Add water'
           value={moWater}
           onChangeText={setMoWater}

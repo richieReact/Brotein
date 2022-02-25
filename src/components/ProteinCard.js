@@ -58,7 +58,6 @@ const ProteinCard = ({ theme }) => {
               marginRight: 15,
               fontSize: 21,
             }}
-            keyboardType='number-pad'
             label='Add protein'
             value={newProtein}
             onChangeText={setNewProtein}
