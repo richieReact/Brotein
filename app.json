@@ -20,7 +20,7 @@
       "infoPlist": {
         "bundleIdentifier": "com.channell.Brotein"
       },
-      "bundleIdentifier": "com.richiec54.Brotein"
+      "bundleIdentifier": "com.channell.Brotein"
     },
     "supportsTablet": true,
     "buildNumber": "1.0.4"
