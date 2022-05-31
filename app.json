@@ -2,7 +2,7 @@
   "expo": {
     "name": "Brotein",
     "slug": "Brotein",
-    "version": "1.0.7",
+    "version": "1.0.9",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -23,7 +23,7 @@
       "bundleIdentifier": "com.channell.Brotein"
     },
     "supportsTablet": true,
-    "buildNumber": "1.0.4"
+    "buildNumber": "1.0.0"
   },
   "android": {
     "package": "com.channell.Brotein",
