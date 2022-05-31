@@ -21,9 +21,9 @@ const ProteinCard = ({ theme }) => {
     clearProteinStorage,
   ] = useProteinData()
 
-  useEffect(() => {
-    readProteinData()
-  }, [])
+  // useEffect(() => {
+  //   readProteinData()
+  // }, [])
 
   const { colors } = theme
 

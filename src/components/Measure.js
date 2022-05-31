@@ -34,18 +34,18 @@ const Measure = () => {
 
   const [waist, setWaist, saveWaistData, readWaistData, onSubmitWaist, onChangeWaistText] = useWaistData()
 
-  useEffect(() => {
-    readWeightData()
-    readArmsData()
-    readBodyFatData()
-    readCalvesData()
-    readChestData()
-    readForearmsData()
-    readHipsData()
-    readShouldersData()
-    readThighsData()
-    readWaistData()
-  }, [])
+  // useEffect(() => {
+  //   readWeightData()
+  //   readArmsData()
+  //   readBodyFatData()
+  //   readCalvesData()
+  //   readChestData()
+  //   readForearmsData()
+  //   readHipsData()
+  //   readShouldersData()
+  //   readThighsData()
+  //   readWaistData()
+  // }, [])
 
   return (
     <>

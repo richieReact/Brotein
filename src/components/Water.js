@@ -20,9 +20,9 @@ const Water = ({ theme }) => {
     clearStorage,
   ] = useWaterData()
 
-  useEffect(() => {
-    readWaterData()
-  }, [])
+  // useEffect(() => {
+  //   readWaterData()
+  // }, [])
 
   return (
     <>
