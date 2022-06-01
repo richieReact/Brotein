@@ -11,7 +11,9 @@ export default () => {
   const STORAGE_KEY00 = '@save_protein'
   const STORAGE_KEY54 = '@save_protein_date'
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    AsyncStorage.setItem(STORAGE_KEY54, '1')
+  }, [])
 
   const addProtein = () => {
     const nmbProtein = Number(protein) + Number(newProtein)
@@ -27,6 +29,7 @@ export default () => {
     setProtein(strProtein)
     // saveProteinData(strProtein)
     AsyncStorage.setItem(STORAGE_KEY00, strProtein)
+    alert('Protein shoulda just been saved hmmm')
   }
 
   const persistProtein = () => {
