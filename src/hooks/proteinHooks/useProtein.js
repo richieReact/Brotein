@@ -61,26 +61,32 @@ export default () => {
   }
 
   const readProteinData = async () => {
-    try {
-      const newDate = new Date()
-      const newDay = newDate.getDay()
-      const numDay = newDay.toString()
-      setDay(numDay)
-      // AsyncStorage.setItem(STORAGE_KEY55, numDay)
-      const lastEntry = await AsyncStorage.getItem(STORAGE_KEY54)
+    // This isn't working in TestFlight, gonna disable for now and maybe even scratch it altogether.
+    // try {
+    //   const newDate = new Date()
+    //   const newDay = newDate.getDay()
+    //   const numDay = newDay.toString()
+    //   setDay(numDay)
+    //   // AsyncStorage.setItem(STORAGE_KEY55, numDay)
+    //   const lastEntry = await AsyncStorage.getItem(STORAGE_KEY54)
 
-      if (numDay !== lastEntry) {
-        console.log(date + ' is the date')
-        AsyncStorage.removeItem(STORAGE_KEY00)
-        setProtein('0')
-        console.log('The Protein was reset')
-      } else {
-        const userProtein = await AsyncStorage.getItem(STORAGE_KEY00)
-        setProtein(userProtein)
-      }
-    } catch (e) {
-      alert('nah son')
-    }
+    //   if (numDay !== lastEntry) {
+    //     console.log(date + ' is the date')
+    //     AsyncStorage.removeItem(STORAGE_KEY00)
+    //     setProtein('0')
+    //     console.log('The Protein was reset')
+    //   } else {
+    //     const userProtein = await AsyncStorage.getItem(STORAGE_KEY00)
+    //     setProtein(userProtein)
+    //   }
+    // } catch (e) {
+    //   alert('nah son')
+    // }
+
+    const userProtein = await AsyncStorage.getItem(STORAGE_KEY00)
+    setProtein(userProtein)
+
+    // Fun first try at it
 
     // const newDate = new Date()
     // const newDay = newDate.getDay()
