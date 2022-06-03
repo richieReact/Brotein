@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default () => {
@@ -28,12 +28,12 @@ export default () => {
 
   const onSubmitBenchReps = () => {
     if (!benchReps) return
-    
+
     saveBenchRepsData(benchReps)
     setBenchReps(benchReps)
   }
 
-  const onChangeBenchRepsText = userBReps => setBenchReps(userBReps)
+  const onChangeBenchRepsText = (userBReps) => setBenchReps(userBReps)
 
   return [benchReps, setBenchReps, readBenchRepsData, onSubmitBenchReps, onChangeBenchRepsText]
 }

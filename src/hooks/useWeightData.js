@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 export default () => {
   const [weight, setWeight] = useState('0')
 
-  // Attemp at AsyncStorage for the weight; it works!
+  // Attempt at AsyncStorage for the weight; it works!
   const STORAGE_KEY = '@save_weight'
 
   const saveWeightData = async () => {
@@ -19,17 +19,18 @@ export default () => {
   const readWeightData = async () => {
     try {
       const userWeight = await AsyncStorage.getItem(STORAGE_KEY)
-
-      if (userWeight !== null) {
-        setWeight(userWeight)
-      }
+      setWeight(userWeight)
+      // I believe this messed it up on the device
+      // if (userWeight !== null) {
+      //   setWeight(userWeight)
+      // }
     } catch (e) {
       alert('Failed to fetch the data from storage')
     }
   }
 
   const onSubmitWeight = () => {
-    if (!weight) return
+    // if (!weight) return
 
     saveWeightData(weight)
     setWeight(weight)
