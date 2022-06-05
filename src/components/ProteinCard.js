@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { View, StyleSheet, TextInput } from 'react-native'
+import { View, StyleSheet, TextInput, ScrollView } from 'react-native'
 import { Card, Title, Paragraph, withTheme, Button } from 'react-native-paper'
 import { colors } from 'react-native-elements'
 
@@ -46,7 +46,8 @@ const ProteinCard = ({ theme }) => {
 
         <View style={styles.input}>
           <TextInput
-            keyboardType='number-pad'
+            returnKeyType='done'
+            keyboardType='numeric'
             keyboardAppearance='dark'
             style={{
               borderRadius: 80,

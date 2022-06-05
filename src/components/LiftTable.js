@@ -44,6 +44,7 @@ const LiftTable = ({ theme }) => {
 
   const showModal = () => setVisible(true)
   const hideModal = () => setVisible(false)
+
   const containerStyle = {
     backgroundColor: 'translucent',
     margin: liftButton ? 40 : 70,
@@ -114,6 +115,7 @@ const LiftTable = ({ theme }) => {
       return (
         <View style={{ alignContent: 'center', width: 130 }}>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             labelStyle={{ fontWeight: 'bold', alignSelf: 'center' }}
@@ -122,6 +124,7 @@ const LiftTable = ({ theme }) => {
             onChangeText={onChangeBenchWeightText}
           />
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             label='Bench Reps'
@@ -152,6 +155,7 @@ const LiftTable = ({ theme }) => {
       return (
         <View style={{ alignContent: 'center', width: 130 }}>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             labelStyle={{ fontWeight: 'bold', alignSelf: 'center' }}
@@ -160,6 +164,7 @@ const LiftTable = ({ theme }) => {
             onChangeText={onChangeSquatWeightText}
           />
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             label='Squat Reps'
@@ -190,6 +195,7 @@ const LiftTable = ({ theme }) => {
       return (
         <View style={{ alignContent: 'center', width: 130 }}>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             labelStyle={{ fontWeight: 'bold', alignSelf: 'center' }}
@@ -198,6 +204,7 @@ const LiftTable = ({ theme }) => {
             onChangeText={onChangeBarRowWeightText}
           />
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             label='Row Reps'
@@ -228,6 +235,7 @@ const LiftTable = ({ theme }) => {
       return (
         <View style={{ alignContent: 'center', width: 130 }}>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             labelStyle={{ fontWeight: 'bold', alignSelf: 'center' }}
@@ -236,6 +244,7 @@ const LiftTable = ({ theme }) => {
             onChangeText={onChangeBarPressWeightText}
           />
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             label='Press Reps'
@@ -266,6 +275,7 @@ const LiftTable = ({ theme }) => {
       return (
         <View style={{ alignContent: 'center', width: 130 }}>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             labelStyle={{ fontWeight: 'bold', alignSelf: 'center' }}
@@ -274,6 +284,7 @@ const LiftTable = ({ theme }) => {
             onChangeText={onChangeDeadliftText}
           />
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             label='Dead Reps'

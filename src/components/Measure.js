@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet, Text, KeyboardAvoidingView } from 'react-native'
 import { TextInput, Button } from 'react-native-paper'
+
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import useWeightData from '../hooks/useWeightData'
 import useArmsData from '../hooks/useArmsData'
@@ -53,10 +55,11 @@ const Measure = () => {
         <Text style={styles.title}>Measurements</Text>
       </View>
 
-      <View style={{ flexDirection: 'row' }}>
+      <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={40} style={{ flexDirection: 'row' }}>
         <View style={styles.row}>
           <Text style={styles.label}>Weight</Text>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             value={weight}
@@ -72,6 +75,7 @@ const Measure = () => {
         <View style={styles.row}>
           <Text style={styles.label}>Arms</Text>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             value={arms}
@@ -87,6 +91,7 @@ const Measure = () => {
         <View style={styles.row}>
           <Text style={styles.label}>Waist</Text>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             value={waist}
@@ -102,6 +107,7 @@ const Measure = () => {
         <View style={styles.row}>
           <Text style={styles.label}>Chest</Text>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             value={chest}
@@ -117,6 +123,7 @@ const Measure = () => {
         <View style={styles.row}>
           <Text style={styles.label}>Thighs</Text>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             value={thighs}
@@ -128,12 +135,13 @@ const Measure = () => {
             Save
           </Button>
         </View>
-      </View>
+      </KeyboardAvoidingView>
 
       <View style={{ flexDirection: 'row', marginTop: 75 }}>
         <View style={styles.row}>
           <Text style={styles.label}>BodyFat%</Text>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             value={bodyFat}
@@ -149,6 +157,7 @@ const Measure = () => {
         <View style={styles.row}>
           <Text style={styles.label}>Forearms</Text>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             value={forearms}
@@ -164,6 +173,7 @@ const Measure = () => {
         <View style={styles.row}>
           <Text style={styles.label}>Hips</Text>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             value={hips}
@@ -179,6 +189,7 @@ const Measure = () => {
         <View style={styles.row}>
           <Text style={styles.label}>Shoulders</Text>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             value={shoulders}
@@ -194,6 +205,7 @@ const Measure = () => {
         <View style={styles.row}>
           <Text style={styles.label}>Calves</Text>
           <TextInput
+            returnKeyType='done'
             keyboardType='number-pad'
             keyboardAppearance='dark'
             value={calves}

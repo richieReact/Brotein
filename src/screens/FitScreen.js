@@ -3,6 +3,8 @@ import { View, StyleSheet, Text } from 'react-native'
 import { colors } from 'react-native-elements'
 import { Appbar, withTheme } from 'react-native-paper'
 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import ProteinCard from '../components/ProteinCard'
 import BigSpacer from '../components/BigSpacer'
 import Spacer from '../components/Spacer'
@@ -12,11 +14,13 @@ import Measure from '../components/Measure'
 const FitScreen = ({ navigation }) => {
   return (
     <>
-      <ProteinCard />
-      <Spacer />
-      <Water />
-      <Spacer />
-      <Measure />
+      <KeyboardAwareScrollView>
+        <ProteinCard />
+        <Spacer />
+        <Water />
+        <Spacer />
+        <Measure />
+      </KeyboardAwareScrollView>
       <Appbar style={styles.appBar}>
         <Appbar.Action size={30} icon='food' onPress={() => navigation.navigate('Fit')} />
         <BigSpacer />

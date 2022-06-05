@@ -33,6 +33,7 @@ const Water = ({ theme }) => {
 
       <View style={styles.input}>
         <TextInput
+          returnKeyType='done'
           keyboardType='number-pad'
           keyboardAppearance='dark'
           style={{
