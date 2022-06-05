@@ -11,9 +11,9 @@ export default () => {
   const STORAGE_KEY09 = '@save_water'
   const STORAGE_KEY91 = '@save_water_date'
 
-  useEffect(() => {
-    AsyncStorage.setItem(STORAGE_KEY09, '1')
-  }, [])
+  // useEffect(() => {
+  //   AsyncStorage.setItem(STORAGE_KEY09, '0')
+  // }, [])
 
   const addWater = () => {
     const nmbWater = Number(water) + Number(moWater) * 0.0078
