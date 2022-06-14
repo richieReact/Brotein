@@ -16,7 +16,7 @@ export default () => {
   // }, [])
 
   const addWater = () => {
-    const nmbWater = Number(water) + Number(moWater) * 0.0078
+    const nmbWater = Number(water) + Number(moWater) * 0.0068
     const strWater = nmbWater.toString()
     // const entryDate = new Date()
     // const savedDate = entryDate.getDay()

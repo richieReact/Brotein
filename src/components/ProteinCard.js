@@ -38,13 +38,67 @@ const ProteinCard = ({ theme }) => {
               <Paragraph style={{ textAlign: 'center', fontSize: 14 }}>
                 We recommend at least 1 gram of protein per pound of lean bodyweight!
               </Paragraph>
+
+              <Spacer />
+
+              <View style={styles.input}>
+                <TextInput
+                  returnKeyType='done'
+                  keyboardType='numeric'
+                  keyboardAppearance='dark'
+                  style={{
+                    borderRadius: 80,
+                    width: 60,
+                    borderColor: 'white',
+                    backgroundColor: '#b3b3b3',
+                    textAlign: 'center',
+                    marginRight: 15,
+                    fontSize: 21,
+                  }}
+                  label='Add protein'
+                  value={newProtein}
+                  onChangeText={setNewProtein}
+                />
+                <Button
+                  contentStyle={{ height: 60, width: 60 }}
+                  compact
+                  icon='plus'
+                  onPress={addProtein}
+                  mode='outlined'
+                  style={{
+                    height: 60,
+                    width: 60,
+                    justifyContent: 'center',
+                    alignContent: 'center',
+                    borderRadius: 80,
+                    marginRight: 15,
+                  }}
+                />
+
+                <Button
+                  contentStyle={{ height: 60, width: 70, marginLeft: -5 }}
+                  compact
+                  // icon='minus'
+                  onPress={clearProteinStorage}
+                  mode='outlined'
+                  style={{
+                    height: 60,
+                    width: 60,
+                    justifyContent: 'center',
+                    alignContent: 'center',
+                    borderRadius: 80,
+                  }}
+                >
+                  Clear
+                </Button>
+              </View>
             </Card.Content>
           </Card>
         </View>
 
         <Spacer />
 
-        <View style={styles.input}>
+        {/* <View style={styles.input}>
           <TextInput
             returnKeyType='done'
             keyboardType='numeric'
@@ -94,7 +148,7 @@ const ProteinCard = ({ theme }) => {
           >
             Clear
           </Button>
-        </View>
+        </View> */}
       </View>
     </>
   )

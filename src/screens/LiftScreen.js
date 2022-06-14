@@ -11,9 +11,9 @@ const LiftScreen = ({ navigation }) => {
     <>
       <LiftTable />
       <Appbar style={styles.appBar}>
-        <Appbar.Action size={30} icon='food' onPress={() => navigation.navigate('Fit')} />
+        <Appbar.Action style={{ top: -13 }} size={30} icon='ruler' onPress={() => navigation.navigate('Fit')} />
         <BigSpacer />
-        <Appbar.Action size={30} icon='weight-lifter' onPress={() => navigation.navigate('Lifties')} />
+        <Appbar.Action style={{ top: -13 }} size={30} icon='weight-lifter' onPress={() => navigation.navigate('Lifties')} />
       </Appbar>
     </>
   )
