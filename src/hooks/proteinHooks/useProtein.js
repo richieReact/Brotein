@@ -13,6 +13,7 @@ export default () => {
 
   useEffect(() => {
     AsyncStorage.setItem(STORAGE_KEY54, '1')
+    AsyncStorage.setItem(STORAGE_KEY00, '0')
   }, [])
 
   const addProtein = () => {
