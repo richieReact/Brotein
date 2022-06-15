@@ -14,6 +14,14 @@ const navigator = createStackNavigator(
   },
   {
     initialRouteName: 'Fit',
+    // screenOptions: {
+    //   gestureEnabled: true,
+    //   gestureDirection: 'horizontal',
+    //   transitionSpec: {
+    //     open: config,
+    //     close: config,
+    //   },
+    // },
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: '#3498db',

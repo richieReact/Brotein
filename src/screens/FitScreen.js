@@ -19,6 +19,7 @@ const FitScreen = ({ navigation }) => {
         <Spacer />
         <Water />
         <Spacer />
+        <Spacer />
         <Measure />
       </KeyboardAwareScrollView>
       <Appbar style={styles.appBar}>

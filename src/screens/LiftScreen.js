@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import { withTheme, Appbar } from 'react-native-paper'
 import { colors } from 'react-native-elements'
+
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import LiftTable from '../components/LiftTable'
 import BigSpacer from '../components/BigSpacer'
