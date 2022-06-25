@@ -241,6 +241,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
+    fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 10,
     textAlignVertical: 'bottom',

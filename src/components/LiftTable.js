@@ -400,7 +400,7 @@ const LiftTable = ({ theme }) => {
     <>
       <Provider>
         <Portal>
-          <Title style={{ textAlign: 'center', marginTop: 8 }}>The Staple Compound Lifts</Title>
+          <Title style={{ textAlign: 'center', marginTop: 8, fontWeight: 'bold', fontSize: 21 }}>The Staple Compound Lifts</Title>
           <DataTable>
             <DataTable.Header>
               <DataTable.Title>Exercises</DataTable.Title>
@@ -621,6 +621,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignContent: 'center',
     justifyContent: 'center',
+  },
+  label: {
+    fontWeight: 'bold',
   },
 })
 
