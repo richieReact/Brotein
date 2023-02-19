@@ -23,7 +23,12 @@
       "bundleIdentifier": "com.channell.Brotein"
     },
     "supportsTablet": true,
-    "buildNumber": "1.0.2"
+    "buildNumber": "1.0.2",
+    "extra": {
+      "eas": {
+        "projectId": "82c7ba53-caf3-49a3-8461-25a240901e76"
+      }
+    }
   },
   "android": {
     "package": "com.channell.Brotein",
